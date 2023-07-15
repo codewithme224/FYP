@@ -1,0 +1,149 @@
+body, ul {
+    margin: 0;
+    padding: 0;
+}
+
+
+.header-container {
+    align-items: center;
+   padding-bottom: 50px;
+    height: 60px;
+    
+}
+
+
+ .logo {
+    margin-right: 200px;
+}
+
+
+
+.logo {
+    display: inline-block;
+    padding: 10px;
+    position: relative;
+}
+
+.logo a {
+    text-decoration: none;
+    color: #99A0AC;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.logo a span {
+    position: relative;
+    padding: 2px;
+    padding: 5px 10px;
+}
+
+.logo a span:after {
+    content: "";
+    position: absolute;
+    top: 0; bottom: 0; 
+    left: 0; right: 0;
+    border: 1px solid;
+    border-radius: 5px;
+    animation: colorChange 2s infinite;
+}
+
+@keyframes colorChange {
+    0%   {border-color: red;}
+    25%  {border-color: yellow;}
+    50%  {border-color: blue;}
+    100% {border-color: green;}
+}
+
+
+.header-container ul {
+    /* background-color: #003366; */
+    background-color: #111827;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    list-style: none;
+}
+
+.header-container ul li {
+    margin-right: 60px;
+}
+
+.header-container ul li a {
+    display: flex;
+    justify-content: space-between;
+    text-decoration: none;
+    color: #99A0AC;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.header-container ul li a:hover {
+    color: white;
+}
+
+.header-container .active {
+    color: white;
+}
+
+
+.right-menu-child {
+    float: right;
+    margin-left: 90px;
+    margin-right: -70px;
+}
+
+.right-menu-child a {
+    display: inline-block;
+    text-decoration: none;
+    color: #99A0AC;
+    font-size: 16px;
+    font-weight: bold;
+    
+    margin-right: 20px;
+}
+
+
+
+
+.right-menu-child .active {
+    color: #ffd700;
+}
+
+
+.job {
+    border: 1px solid white;
+    border-radius: 5px;
+    padding: 10px 20px;
+}
+
+.job:hover {
+    background-color: white;
+    color: black;
+}
+
+.job i {
+    margin-right: 10px;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #fff;
+    padding: 10px;
+    z-index: 1;
+  }
+  
+  .dropdown:hover .dropdown-menu {
+    display: block;
+  }
+
+
+
+
+
+
