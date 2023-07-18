@@ -30,12 +30,26 @@
     <link rel="stylesheet" href="{{ asset('css/navbar.css') }}"> -->
 
     <link rel="stylesheet" href="{{ asset('assets/css/navbar.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/home.css') }}">
     
     <!-- MAIN CSS -->
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
 
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.1.0/css/select2.min.css" rel="stylesheet" />
+
+
+
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+
+    <style>
+       body {
+        background-color: #000000;
+opacity: 0.9;
+background-image: radial-gradient(circle at center center, #404652, #000000), repeating-radial-gradient(circle at center center, #404652, #404652, 10px, transparent 20px, transparent 10px);
+background-blend-mode: multiply;
+       }
+    </style>
 </head>
 
 <body>
@@ -122,6 +136,16 @@
     <script src="{{ asset('assets/js/bootstrap-select.min.js') }}"></script>
 
     <script src="{{ asset('assets/js/custom.js') }}"></script>
+    <script src="{{ asset('assets/js/home.js') }}"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.1.0/js/select2.min.js"></script>
+
+<script>
+  $(document).ready(function() {
+    $('.select2').select2();
+  });
+</script>
+
 </body>
 
 </html>

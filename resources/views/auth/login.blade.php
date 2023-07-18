@@ -92,7 +92,7 @@
   text-decoration: underline;
 }
 
-.button {
+.button-login {
   margin: 15px 0;
   width: 100%;
   height: 50px;
@@ -109,7 +109,7 @@
              -5px -5px 10px #ffffff73;
 }
 
-.button:focus {
+.button-login:focus {
   color: #3498db;
   box-shadow: inset 2px 2px 5px #BABECC,
              inset -5px -5px 10px #ffffff73;
@@ -178,7 +178,7 @@
                 <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
                 <label class="form-check-label" for="remember">{{ __('Remember Me') }}</label>
             </div>
-            <button class="button">{{ __('Login') }}</button>
+            <button class="button-login">{{ __('Login') }}</button>
             <div class="sign-up">
             @if (Route::has('password.request'))
                     <a class="btn btn-link" href="{{ route('password.request') }}">
