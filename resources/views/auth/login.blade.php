@@ -27,7 +27,7 @@
 
 .field {
   height: 50px;
-  width: 100%;
+  width: 150%;
   margin-bottom: 30px;
   display: flex;
   position: relative;
@@ -115,6 +115,11 @@
              inset -5px -5px 10px #ffffff73;
 }
 
+.button-login:hover {
+  color: white;
+  
+}
+
 .sign-up {
   margin: 10px 0;
   color: #595959;
@@ -176,9 +181,9 @@
             </div>
             <div class="forgot-pass">
                 <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-                <label class="form-check-label" for="remember">{{ __('Remember Me') }}</label>
+                <label class="form-check-label" style="color: #595959;" for="remember">{{ __('Remember Me') }}</label>
             </div>
-            <button class="button-login">{{ __('Login') }}</button>
+            <button class="button-login" style="color: black;">{{ __('Login') }}</button>
             <div class="sign-up">
             @if (Route::has('password.request'))
                     <a class="btn btn-link" href="{{ route('password.request') }}">
@@ -189,7 +194,7 @@
          </form>
       </div>
 
-      <img class="log-img" src="{{ asset('assets/images/login.jpg')}}" alt="">
+      <!-- <img class="log-img" src="{{ asset('assets/images/login.jpg')}}" alt=""> -->
 </div>
 </div>
 @endsection

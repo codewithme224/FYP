@@ -25,7 +25,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-image: url("assets/images/log.jpg");
+  /* background-image: url("assets/images/log.jpg"); */
 }
 .content {
   width: 530px;
@@ -45,7 +45,7 @@ body {
 
 .field {
   height: 50px;
-  width: 100%;
+  width: 150%;
   margin-bottom: 30px;
   display: flex;
   position: relative;
@@ -118,7 +118,7 @@ body {
   text-decoration: underline;
 }
 
-.button {
+.button-register {
   margin: 15px 0;
   width: 100%;
   height: 50px;
@@ -135,7 +135,7 @@ body {
              -5px -5px 10px #ffffff73;
 }
 
-.button:focus {
+.button-register:focus {
   color: #3498db;
   box-shadow: inset 2px 2px 5px #BABECC,
              inset -5px -5px 10px #ffffff73;
@@ -170,7 +170,7 @@ body {
                2px 2px 5px rgba(94,104,121,0.288);
 }
 
-.icon  {
+.email-icon  {
     
   margin-top: 18px;
   margin-left: 20px ;
@@ -181,7 +181,7 @@ body {
   line-height: 55px;
 }
 
-.icon i {
+.email-icon i {
     height: 70px;
     width: 70px;
 }
@@ -217,7 +217,7 @@ body {
                             <strong>{{ $message }}</strong>
                         </span>
                 @enderror
-                <span class="icon">
+                <span class="email-icon">
                 <i class="fa-solid fa-envelope"></i>
                 </span>
              
@@ -243,11 +243,11 @@ body {
 
                <span class="span"><svg class="" xml:space="preserve" style="enable-background:new 0 0 512 512" viewBox="0 0 512 512" y="0" x="0" height="20" width="50" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" xmlns="http://www.w3.org/2000/svg"><g><path class="" data-original="#000000" fill="#595959" d="M336 192h-16v-64C320 57.406 262.594 0 192 0S64 57.406 64 128v64H48c-26.453 0-48 21.523-48 48v224c0 26.477 21.547 48 48 48h288c26.453 0 48-21.523 48-48V240c0-26.477-21.547-48-48-48zm-229.332-64c0-47.063 38.27-85.332 85.332-85.332s85.332 38.27 85.332 85.332v64H106.668zm0 0"></path></g></svg></span>
             </div>
-            <button class="button">{{ __('Register') }}</button>
+            <button class="button-register">{{ __('Register') }}</button>
          </form>
       </div>
 
-      <img class="log-img" src="{{ asset('assets/images/login.jpg')}}" alt="">
+      <!-- <img class="log-img" src="{{ asset('assets/images/login.jpg')}}" alt=""> -->
 </div>
 </div>
 @endsection

@@ -250,80 +250,29 @@
   </div>
 </section>
 
-<h2 class="number-jobs">43,167 Job Listed</h2>
+<h2 class="number-jobs">{{ $total_jobs }} Job Listed</h2>
 
 <div class="job-container" style=" background-color: #15121A;">
 
+  @foreach ($jobs as $job )
   <div class="card-job-post">
     <div class="job-content">
-      <p class="heading">Product Designer
+      <p class="heading">{{ $job->job_title }}
       </p>
-      <img class="job-logo" src="{{ asset('assets/images/job_logo_1.jpg') }}" alt="">
+      <img class="job-logo" src="{{ asset('assets/images/'.$job->image.'') }}" alt="">
       <p class="para">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi
-        laboriosam at voluptas minus culpa deserunt delectus sapiente
-        inventore pariatur
+        {{ $job->job_description }}
       </p>
       <div class="job-details">
-        <span>Adidas</span>
-        <span>New York</span>
-        <span>Part Time</span>
+        <span>{{ $job->company }}</span>
+        <span>{{ $job->job_region }}</span>
+        <span>{{ $job->job_type }}</span>
       </div>
       <button class="btn"><a href="job-single.html">Apply</a>
       </button>
     </div>
   </div>
-  <div class="card-job-post">
-    <div class="job-content">
-      <p class="heading">Digital Marketing Director
-      </p>
-      <img class="job-logo" src="{{ asset('assets/images/job_logo_2.jpg') }}" alt="">
-      <p class="para">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi
-        laboriosam at voluptas minus culpa deserunt delectus sapiente
-        inventore pariatur
-      </p>
-      <div class="job-details">
-        <span>Sprint</span>
-        <span>New York</span>
-        <span>Part Time</span>
-      </div>
-      <button class="btn"><a href="job-single.html">Apply</a>
-      </button>
-    </div>
-  </div>
-
-  <div class="card-job-post">
-    <div class="job-content">
-      <p class="heading">Product Designer
-      </p>
-      <img class="job-logo" src="{{ asset('assets/images/job_logo_3.jpg') }}" alt="">
-      <p class="para">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi
-        laboriosam at voluptas minus culpa deserunt delectus sapiente
-        inventore pariatur
-      </p>
-      <div class="job-details">
-        <span>Amazon</span>
-        <span>New York</span>
-        <span>Part Time</span>
-      </div>
-      <button class="btn"><a href="job-single.html">Apply</a>
-      </button>
-    </div>
-  </div>
-  <!-- <div class="book">
-    <p>Hello</p>
-    <div class="cover">
-      <p>Hover Me</p>
-    </div>
-  </div>
-  <div class="book">
-    <p>Hello</p>
-    <div class="cover">
-      <p>Hover Me</p>
-    </div>
-  </div> -->
+  @endforeach
 
 </div>
 
