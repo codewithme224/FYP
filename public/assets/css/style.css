@@ -1,4 +1,4 @@
- /* @import url("https://fonts.googleapis.com/css?family=Nunito:200,300,400,700");
+@import url("https://fonts.googleapis.com/css?family=Nunito:200,300,400,700");
 .site-navbar {
   margin-bottom: 0px;
   z-index: 1999;
@@ -6,7 +6,6 @@
   width: 100%;
   top: 2rem; }
   .site-navbar .container-fluid {
-    background-color: #003366;
     padding-left: 7rem;
     padding-right: 7rem; }
     @media (max-width: 1199.98px) {
@@ -43,8 +42,6 @@
       .site-navbar .site-menu-toggle {
         margin-left: 5px; } }
   .site-navbar .site-navigation {
-    background-color: #003366;
-
     position: absolute;
     left: 50%;
     -webkit-transform: translateX(-50%);
@@ -54,7 +51,6 @@
     .site-navbar .site-navigation .site-menu {
       margin-bottom: 0; }
       .site-navbar .site-navigation .site-menu .active {
-        
         color: #fff;
         display: inline-block;
         padding: 5px 20px; }
@@ -1670,4 +1666,4 @@ h1, h2, h3, h4 {
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%); }  */
+  transform: translate(-50%, -50%); }

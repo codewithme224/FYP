@@ -46,8 +46,7 @@
   </div>
 </form>
 
-
-<!-- <div class="hero-section">
+<div class="hero-section">
   <div class="hero-img">
     <img src="{{ asset('assets/images/job-search.jpg')}}" alt="">
 
@@ -87,10 +86,10 @@
           <div>
           </div>
       </button>
--->
-<!-- Social media -->
 
-<!-- <div class="card-social">
+      <!-- Social media -->
+
+      <div class="card-social">
         <span>Social</span>
         <a class="social-link" href="#">
           <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 461.001 461.001" xml:space="preserve" fill="#000000">
@@ -140,7 +139,7 @@
 
 
   </div>
-</div> -->
+</div>
 
 <div class="card" style="background-color: #17141D;">
   <header class="card-header">
@@ -273,7 +272,7 @@
       <button class="btn"><a href="job-single.html">Apply</a>
       </button>
     </div>
-</div>
+  </div>
   <div class="card-job-post">
     <div class="job-content">
       <p class="heading">Digital Marketing Director
@@ -329,10 +328,104 @@
 </div>
 
 
+<section class="job-sign-up" style=" background-color: #15121A;">
+  <div class="container-signup">
+    <div class="first-row">
+      <div class="first-col">
+        <h2 class="text-white">Looking For A Job?</h2>
+        <p class="mb-0 text-white lead">
+          Unlock a world of boundless opportunities tailored just for you. Join our virtual job fair <br> platform and embark on an exciting journey filled with top-notch employers, inspiring connections, <br> and a multitude of career pathways. Discover your true potential and elevate your job search with TalentArina. <br> Your dream job awaits – seize the chance to make your mark in the professional realm!.</p>
+      </div>
+      <button class="btn-ss"><a href="index.php"> Sign Up</a>
+      </button>
+      <div class="">
+        <!-- <a href="#" class="btn-ss">Sign Up</a> -->
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- Testimonial -->
+<!-- Swiper -->
+<div class="testimonial-container" style="background-color: #15121A;">
+  <div class="swiper mySwiper">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide">
+        <img src="{{ asset('assets/images/user1.jpg')}}" alt="">
+        <h2>Mary</h2>
+        <p>TalentArina has been a game-changer for my job search! The platform's user-friendly interface made it effortless to explore job opportunities across industries. I connected with incredible employers, and within weeks, I secured my dream job. Thank you, TalentArina, for opening doors to a bright future!"</p>
+      </div>
+      <div class="swiper-slide">
+        <img src="{{ asset('assets/images/user2.jpg')}}" alt="">
+        <h2>Laura</h2>
+        <p>"I owe my career breakthrough to TalentArina's exceptional job fair platform. The networking opportunities and career resources provided were invaluable in building my professional profile. I landed multiple job offers from top companies, and I couldn't be happier with the outcome. Grateful to TalentArina for making my dreams come true!"</p>
+      </div>
+      <div class="swiper-slide">
+        <img src="{{ asset('assets/images/user3.jpg')}}" alt="">
+        <h2>John</h2>
+        <p>"As an employer, TalentArina has been a fantastic recruitment partner. We connected with an impressive pool of talented candidates, and the platform's advanced features streamlined our hiring process. The caliber of candidates we found on TalentArina exceeded our expectations, and we've built a strong team of professionals thanks to their exceptional service."</p>
+      </div>
+      <div class="swiper-slide">
+        <img src="{{ asset('assets/images/user1.jpg')}}" alt="">
+        <h2>Esther</h2>
+        <p>"TalentArina truly stands out in the job fair space. The platform's innovative approach to virtual job fairs is refreshing. I attended their event and found the interactions with recruiters seamless and engaging. The site stats and analytics provided valuable insights into my job search progress. I highly recommend TalentArina to anyone serious about their career."</p>
+      </div>
+
+    </div>
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-pagination"></div>
+  </div>
+
+
+  <div class="flip-card">
+    <div class="flip-card-inner">
+      <div class="flip-card-front">
+        <p class="title">Unlock Your Career Potential:</p>
+        <p>"Experience the Future of Job Fairs at TalentArina! Connect with Top Employers, Explore Limitless Opportunities, and Propel Your Success in the Job Market like Never Before."</p>
+      </div>
+      <div class="flip-card-back">
+        <p class="title">Your Gateway to Thriving Careers:</p>
+        <p>"Join TalentArina's Virtual Job Fair for a Transformative Journey. Elevate Your Job Search, Network with Industry Leaders, and Embrace a World of Unprecedented Opportunities."</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<!-- Swiper JS -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+
+<!-- Initialize Swiper -->
+<script>
+  var swiper = new Swiper(".mySwiper", {
+    spaceBetween: 30,
+    centeredSlides: true,
+    autoplay: {
+      delay: 2500,
+      disableOnInteraction: false,
+    },
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+  });
+</script>
+
 
 <!-- <div class="carousel-container">
   <img src="{{ asset('assets/images/slider1.jpg')}}" alt="Image 1">
   <img src="{{ asset('assets/images/person_2.jpg')}}" alt="Image 2">
   <img src="{{ asset('assets/images/person_3.jpg')}}" alt="Image 3">
 </div> -->
+
+
 @endsection
