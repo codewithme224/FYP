@@ -19,7 +19,7 @@
 
 
     <!-- CSS & JS -->
-    <!-- <link rel="stylesheet" href="{{ asset('css/custom-bs.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/custom-bs.css') }}">
     <link rel="stylesheet" href="{{ asset('css/jquery.fancybox.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/bootstrap-select.min.css') }}">
     <link rel="stylesheet" href="{{ asset('fonts/icomoon/style.css') }}">
@@ -27,10 +27,11 @@
     <link rel="stylesheet" href="{{ asset('css/owl.carousel.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/animate.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/quill.snow.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/navbar.css') }}"> -->
+    <link rel="stylesheet" href="{{ asset('css/navbar.css') }}">
 
     <link rel="stylesheet" href="{{ asset('assets/css/navbar.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/home.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/single-page.css') }}">
 
     <!-- MAIN CSS -->
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">

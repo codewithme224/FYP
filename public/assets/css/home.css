@@ -946,6 +946,7 @@ body {
   padding: 10px;
   font-weight: 600;
   border: none;
+  margin-left: 7px;
   cursor: pointer;
   background: linear-gradient(-45deg, #f89b29 0%, #ff0f7b 100% );
   border-radius: 5px;
@@ -1004,6 +1005,10 @@ body {
   align-items: center;
 }
 
+.job-details i {
+  margin-right: 10px;
+}
+
 
 .job-details span {
   font-size: 15px;
@@ -1029,7 +1034,7 @@ body {
 }
 
 .number-jobs {
-  color: white;
+  color: #15121A;
   font-size: 40px;
   align-items: center;
   text-align: center;

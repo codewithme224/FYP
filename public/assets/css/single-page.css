@@ -1,0 +1,50 @@
+.job-desc-row {
+    border-radius: 10px;
+    padding: 20px;
+    border-top: 5px solid #ff0f7b;
+}
+
+.job-desc-row .job-title {
+    font-size: 30px;
+    font-weight: 600;
+    color: white;
+    margin-left: 20px;
+    
+}
+
+
+.single-job-details {
+    margin-left: 20px;
+}
+
+
+.single-job-details span {
+    color: white;
+    font-size: 15px;
+}
+
+.single-job-details span i {
+    margin: 10px;
+}
+
+.single-job-desc {
+    font-size: 15px;
+    font-weight: 600;
+    color: white;
+}
+
+
+.text-primary1 {
+    color: #ff0f7b !important;
+    font-size: 30px;
+}
+
+
+.mb-5 h3 {
+    color: #ff0f7b !important;
+    font-size: 25px;
+}
+
+.mb-5 i {
+    margin-right: 15px;
+}
