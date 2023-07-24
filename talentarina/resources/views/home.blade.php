@@ -1,6 +1,26 @@
 @extends('layouts.app')
 
 @section('content')
+    <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="{{ asset('assets/images/slider1.png') }}" class="d-block w-100" alt="...">
+                <div class="slider-text">
+                    <h1>Welcome to TalentArina</h1>
+                    <p>Your Gateway to Empowering Careers and Endless Opportunities! Uncover the Path to Professional Success as You Connect with Leading Companies, Network with Industry Experts, and Embark on a Journey of Discovery. Elevate Your Job Search with a Transformative Experience, Where Your Ambitions Are Fueled and Dreams Take Flight. Join TalentArina Today and Embrace a New Era of Career Advancement - Your Future Starts Here!</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="{{ asset('assets/images/slider2.png') }}" class="d-block w-100" alt="...">
+                <div class="slider-text2">
+                    <h1>Step into a World of Career Exploration and Achievements</h1>
+                    <p>Your Gateway to Empowering Careers and Endless Opportunities! Uncover the Path to Professional Success as You Connect with Leading Companies, Network with Industry Experts, and Embark on a Journey of Discovery. Elevate Your Job Search with a Transformative Experience, Where Your Ambitions Are Fueled and Dreams Take Flight. Join TalentArina Today and Embrace a New Era of Career Advancement - Your Future Starts Here!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
     <form method="post" class="search-jobs-form">
         <div class="row1">
             <div class="col1">
@@ -234,40 +254,54 @@
                         Empowering Careers!</p>
                 </div>
             </div>
-            <div class="row pb-0 block__19738 section-counter">
 
-                <div class="col-6 col-md-6 col-lg-3 mb-5 mb-lg-0">
-                    <div class="d-flex align-items-center justify-content-center mb-2">
-                        <strong class="number" data-number="1930">0</strong>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3 col-sm-6">
+                        <div class="counter">
+                            <div class="counter-icon">
+                                <i class="fa-solid fa-user-group"></i>
+                            </div>
+                            <span class="counter-value">1963</span>
+                            <h3>Candidates</h3>
+                        </div>
                     </div>
-                    <span class="caption">Candidates</span>
-                </div>
-
-                <div class="col-6 col-md-6 col-lg-3 mb-5 mb-lg-0">
-                    <div class="d-flex align-items-center justify-content-center mb-2">
-                        <strong class="number" data-number="54">0</strong>
+                    <div class="col-md-3 col-sm-6">
+                        <div class="counter blue">
+                            <div class="counter-icon">
+                                <i class="fa-solid fa-layer-group"></i>
+                            </div>
+                            <span class="counter-value">1854</span>
+                            <h3>Jobs Posted</h3>
+                        </div>
                     </div>
-                    <span class="caption">Jobs Posted</span>
-                </div>
-
-                <div class="col-6 col-md-6 col-lg-3 mb-5 mb-lg-0">
-                    <div class="d-flex align-items-center justify-content-center mb-2">
-                        <strong class="number" data-number="120">0</strong>
+                    <div class="col-md-3 col-sm-6">
+                        <div class="counter blue">
+                            <div class="counter-icon">
+                                <i class="fa fa-rocket"></i>
+                            </div>
+                            <span class="counter-value">1854</span>
+                            <h3>Jobs Filled</h3>
+                        </div>
                     </div>
-                    <span class="caption">Jobs Filled</span>
-                </div>
-
-                <div class="col-6 col-md-6 col-lg-3 mb-5 mb-lg-0">
-                    <div class="d-flex align-items-center justify-content-center mb-2">
-                        <strong class="number" data-number="550">0</strong>
+                    <div class="col-md-3 col-sm-6">
+                        <div class="counter blue">
+                            <div class="counter-icon">
+                                <i class="fa-solid fa-briefcase"></i>
+                            </div>
+                            <span class="counter-value">1854</span>
+                            <h3>Companies</h3>
+                        </div>
                     </div>
-                    <span class="caption">Companies</span>
                 </div>
-
-
             </div>
+
         </div>
     </section>
+
+    {{-- Counter --}}
+
+
 
     <h2 class="number-jobs">{{ $total_jobs }} Job Listed</h2>
 
@@ -307,7 +341,8 @@
                         platform and embark on an exciting journey filled with top-notch employers, inspiring connections,
                         <br> and a multitude of career pathways. Discover your true potential and elevate your job search
                         with TalentArina. <br> Your dream job awaits – seize the chance to make your mark in the
-                        professional realm!.</p>
+                        professional realm!.
+                    </p>
                 </div>
                 <button class="btn-ss"><a href="index.php"> Sign Up</a>
                 </button>
@@ -408,9 +443,30 @@
     </script>
 
 
+    <script src="https://pagead2.googlesyndication.com/pagead/managed/js/adsense/m202307180101/show_ads_impl_fy2021.js"
+        id="google_shimpl"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+
+    <script>
+        $(document).ready(function(){
+    $('.counter-value').each(function(){
+    $(this).prop('Counter',0).animate({
+    Counter: $(this).text()
+    },{
+    duration: 3500,
+    easing: 'swing',
+    step: function (now){
+    $(this).text(Math.ceil(now));
+    }
+    });
+    });
+    });
+    </script>
+
+
     <!-- <div class="carousel-container">
-      <img src="{{ asset('assets/images/slider1.jpg') }}" alt="Image 1">
-      <img src="{{ asset('assets/images/person_2.jpg') }}" alt="Image 2">
-      <img src="{{ asset('assets/images/person_3.jpg') }}" alt="Image 3">
-    </div> -->
+          <img src="{{ asset('assets/images/slider1.jpg') }}" alt="Image 1">
+          <img src="{{ asset('assets/images/person_2.jpg') }}" alt="Image 2">
+          <img src="{{ asset('assets/images/person_3.jpg') }}" alt="Image 3">
+        </div> -->
 @endsection

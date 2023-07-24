@@ -162,4 +162,16 @@
 
 
 
+.nav-icons a {
+    text-decoration: none;
+    font-size: 15px;
+    
+}
 
+.nav-icons a:hover {
+    color: white;
+}
+
+.nav-icons i {
+    font-size: 25px;
+}

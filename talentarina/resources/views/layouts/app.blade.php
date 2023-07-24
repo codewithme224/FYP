@@ -22,7 +22,7 @@
 
 
     <!-- CSS & JS -->
-    <link rel="stylesheet" href="{{ asset('css/custom-bs.css') }}">
+    {{-- <link rel="stylesheet" href="{{ asset('css/custom-bs.css') }}">
     <link rel="stylesheet" href="{{ asset('css/jquery.fancybox.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/bootstrap-select.min.css') }}">
     <link rel="stylesheet" href="{{ asset('fonts/icomoon/style.css') }}">
@@ -30,7 +30,7 @@
     <link rel="stylesheet" href="{{ asset('css/owl.carousel.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/animate.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/quill.snow.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/navbar.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/navbar.css') }}"> --}}
 
     <link rel="stylesheet" href="{{ asset('assets/css/navbar.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/home.css') }}">
@@ -74,14 +74,14 @@
         </header>
         <div class="l-navbar" id="nav-bar">
             <nav class="nav">
-                <div> <a href="{{ url('/') }}" class="nav_logo"> <i class='bx bx-layer nav_logo-icon'></i> <span
+                <div class="nav-icons"> <a href="{{ url('/') }}" class="nav_logo"> <i class='bx bx-layer nav_logo-icon'></i> <span
                             class="nav_logo-name">TalentArina</span> </a>
                     <div class="nav_list"> <a href="index.html" class="nav_link active"> <i
-                                class='bx bx-grid-alt nav_icon'></i> <span class="nav_name">Home</span> </a> <a
+                                class='bx bx-home nav_icon'></i> <span class="nav_name">Home</span> </a> <a
                             href="#" class="nav_link"> <i class='bx bx-user nav_icon'></i> <span
                                 class="nav_name">About</span> </a> <a href="#" class="nav_link"> <i
                                 class='bx bx-message-square-detail nav_icon'></i> <span class="nav_name">Contact</span>
-                        </a> <a href="#" class="nav_link"> <i class='bx bx-bookmark nav_icon'></i> <span
+                        </a> <a href="#" class="nav_link"> <i class='bx bx-plus nav_icon'></i> <span
                                 class="nav_name">Post a Job</span> </a>
                         @guest
                             @if (Route::has('login'))
