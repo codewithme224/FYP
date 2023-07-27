@@ -70,7 +70,7 @@
         <!-- Header -->
         <header class="header" id="header">
             <div class="header_toggle"> <i class='bx bx-menu' id="header-toggle"></i> </div>
-            <div class="header_img"> <img src="https://i.imgur.com/hczKIze.jpg" alt=""> </div>
+            <div class="header_img"> </div>
         </header>
         <div class="l-navbar" id="nav-bar">
             <nav class="nav">
@@ -83,13 +83,22 @@
                                 class='bx bx-message-square-detail nav_icon'></i> <span class="nav_name">Contact</span>
                         </a> <a href="#" class="nav_link"> <i class='bx bx-plus nav_icon'></i> <span
                                 class="nav_name">Post a Job</span> </a>
+                        </a> 
+                        <a href="{{ route('applications') }}" class="nav_link"> <i class='bx bx-briefcase nav_icon'></i> <span
+                            class="nav_name">Applications</span> </a>
+
+                        <a href="{{ route('profile') }}" class="nav_link"> <i class='bx bx-user-circle nav_icon'></i> <span
+                            class="nav_name">Profile</span> </a>
+
+                        <a href="{{ route('saved.jobs') }}" class="nav_link"> <i class='bx bx-heart nav_icon'></i> <span
+                            class="nav_name">Saved Jobs</span> </a>
                         @guest
                             @if (Route::has('login'))
-                                <a href="#" class="nav_link"> <i class='bx bx-folder nav_icon'></i> <span
+                                <a href="#" class="nav_link"> <i class='bx bx-log-in nav_icon'></i> <span
                                         class="nav_name">Log In</span> </a>
                             @endif
                             @if (Route::has('register'))
-                                <a href="#" class="nav_link"> <i class='bx bx-bar-chart-alt-2 nav_icon'></i> <span
+                                <a href="#" class="nav_link"> <i class='bx bx-user-plus nav_icon'></i> <span
                                         class="nav_name">Register</span> </a>
                             @endif
                         @else
@@ -116,7 +125,9 @@
 
                         @endguest
                     </div>
-                </div> <a href="{{ route('logout') }}"
+                </div> 
+                
+                <a href="{{ route('logout') }}"
                     onclick="event.preventDefault();
                                     document.getElementById('logout-form').submit();">
                     <i class='bx bx-log-out nav_icon' style="color: #afa5d9; margin-left: 15px; margin-bottom: 20px; font-size: 30px;"></i>
@@ -124,6 +135,7 @@
                         @csrf
                     </form>
                 </a>
+                
             </nav>
         </div>
         <!--Container Main start-->

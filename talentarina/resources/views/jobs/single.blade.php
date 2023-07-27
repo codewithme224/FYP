@@ -19,9 +19,24 @@
 
     {{-- Alert --}}
     @if (\Session::has('save'))
-    <div class="alert alert-success">
-        <p>{!! \Session::get('save') !!}</p>
-    </div>
+        <div class="alert alert-success">
+            <p>{!! \Session::get('save') !!}</p>
+        </div>
+    @endif
+
+
+    {{-- CV Alert --}}
+    @if (\Session::has('apply'))
+        <div class="alert alert-success">
+            <p>{!! \Session::get('apply') !!}</p>
+        </div>
+    @endif
+
+
+    @if (\Session::has('applied'))
+        <div class="alert alert-success">
+            <p>{!! \Session::get('applied') !!}</p>
+        </div>
     @endif
 
 
@@ -102,7 +117,23 @@
                                 <!--add text-danger to it to make it read-->
                             </div>
                             <div class="col-6">
-                                <button class="btn-ss">Apply Now</button>
+                                <form action="{{ route('apply.job') }}" method="POST">
+                                    @csrf
+                                    <input name="job_id" type="hidden" value="{{ $job->id }}">
+                                    <input name="image" type="hidden" value="{{ $job->image }}">
+                                    <input name="job_title" type="hidden" value="{{ $job->job_title }}">
+                                    <input name="job_region" type="hidden" value="{{ $job->job_region }}">
+                                    <input name="job_type" type="hidden" value="{{ $job->job_type }}">
+                                    <input name="company" type="hidden" value="{{ $job->company }}">
+
+                                    @if ($appliedJob > 0)
+                                        <button class="btn-ss" disabled>You applied for this job</button>
+                                    @else
+                                        <button type="submit" name="submit" class="btn-ss">Apply Now</button>
+                                    @endif
+
+
+                                </form>
                             </div>
                         </div>
 
@@ -111,12 +142,14 @@
                         <div class="bg-light p-3 border rounded mb-4">
                             <h3 class="text-primary  mt-3 h5 pl-3 mb-3 ">Job Summary</h3>
                             <ul class="list-unstyled pl-3 mb-0">
-                                <li class="mb-2"><strong class="text-black">Published on: </strong> {{ $job->created_at }}
+                                <li class="mb-2"><strong class="text-black">Published on: </strong>
+                                    {{ $job->created_at }}
                                 </li>
                                 <li class="mb-2"><strong class="text-black">Vacancy: </strong>{{ $job->vacancy }}</li>
                                 <li class="mb-2"><strong class="text-black">Employment Status: </strong>
                                     {{ $job->job_type }}</li>
-                                <li class="mb-2"><strong class="text-black">Experience: </strong> {{ $job->experience }}
+                                <li class="mb-2"><strong class="text-black">Experience: </strong>
+                                    {{ $job->experience }}
                                 </li>
                                 <li class="mb-2"><strong class="text-black">Job Location: </strong>
                                     {{ $job->job_region }}
@@ -190,6 +223,18 @@
                             </div>
                         </div>
 
+                        <div class="bg-light p-3 border rounded mb-4 mt-4">
+                            <h3 class="text-primary  mt-3 h5 pl-3 mb-3 ">Category</h3>
+                            <ul class="list-unstyled pl-3 mb-0">
+                                @foreach ($categories as $category)
+                                    <li class="mb-2">
+                                        <a class="text-decoration-none" href="{{ route('categories.single', $category->name) }}">{{ $category->name }}</a>
+                                    </li>
+                                @endforeach
+
+                            </ul>
+                        </div>
+
                     </div>
                 </div>
             </div>
@@ -204,10 +249,10 @@
                 </div>
             </div>
 
-            <div class="job-container" style=" background-color: #15121A;">
+            <div class="job-container" style=" background-color: #15121A; width: 100%; margin-left: -15px; padding-left: 10px; padding-right: 10px;">
 
                 @foreach ($relatedJobs as $job)
-                    <div class="card-job-post">
+                    <div class="card-job-post" style="padding: 10px">
                         <a href="{{ route('single.job', $job->id) }}"></a>
                         <div class="job-content">
                             <p class="heading">{{ $job->job_title }}

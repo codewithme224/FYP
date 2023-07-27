@@ -308,7 +308,7 @@
     <div class="job-container" style=" background-color: #15121A;">
 
         @foreach ($jobs as $job)
-            <div class="card-job-post">
+            <div class="card-job-post" style="padding: 10px">
                 <a href="{{ route('single.job', $job->id) }}"></a>
                 <div class="job-content">
                     <p class="heading">{{ $job->job_title }}
@@ -461,6 +461,7 @@
     });
     });
     });
+
     </script>
 
 

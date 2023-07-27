@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Jobs\JobsController;
 use App\Http\Controllers\Jobs\JobsSavedController;
+use Illuminate\Support\Facades\Auth;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -27,3 +29,15 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/jobs/single{id}', [App\Http\Controllers\Jobs\JobsController::class, 'single'])->name('single.job');
 
 Route::post('/jobs/save', [App\Http\Controllers\Jobs\JobsController::class, 'saveJob'])->name('save.job');
+
+Route::post('/jobs/apply', [App\Http\Controllers\Jobs\JobsController::class, 'jobApply'])->name('apply.job');
+
+Route::get('/categories/single{name}', [App\Http\Controllers\Categories\CategoriesController::class, 'singleCategory'])->name('categories.single');
+
+
+Route::get('/users/profile', [App\Http\Controllers\USers\UsersController::class, 'profile'])->name('profile');
+Route::get('/users/applications', [App\Http\Controllers\USers\UsersController::class, 'applications'])->name('applications');
+Route::get('/users/savedjobs', [App\Http\Controllers\USers\UsersController::class, 'savedJobs'])->name('saved.jobs');
+
+Route::get('/users/edit-details', [App\Http\Controllers\USers\UsersController::class, 'editDetails'])->name('edit.details');
+
