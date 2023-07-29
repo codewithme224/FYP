@@ -35,6 +35,7 @@
     <link rel="stylesheet" href="{{ asset('assets/css/navbar.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/home.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/single-page.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/forms.css') }}">
 
     <!-- MAIN CSS -->
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
@@ -74,8 +75,8 @@
         </header>
         <div class="l-navbar" id="nav-bar">
             <nav class="nav">
-                <div class="nav-icons"> <a href="{{ url('/') }}" class="nav_logo"> <i class='bx bx-layer nav_logo-icon'></i> <span
-                            class="nav_logo-name">TalentArina</span> </a>
+                <div class="nav-icons"> <a href="{{ url('/') }}" class="nav_logo"> <i
+                            class='bx bx-layer nav_logo-icon'></i> <span class="nav_logo-name">TalentArina</span> </a>
                     <div class="nav_list"> <a href="index.html" class="nav_link active"> <i
                                 class='bx bx-home nav_icon'></i> <span class="nav_name">Home</span> </a> <a
                             href="#" class="nav_link"> <i class='bx bx-user nav_icon'></i> <span
@@ -83,15 +84,8 @@
                                 class='bx bx-message-square-detail nav_icon'></i> <span class="nav_name">Contact</span>
                         </a> <a href="#" class="nav_link"> <i class='bx bx-plus nav_icon'></i> <span
                                 class="nav_name">Post a Job</span> </a>
-                        </a> 
-                        <a href="{{ route('applications') }}" class="nav_link"> <i class='bx bx-briefcase nav_icon'></i> <span
-                            class="nav_name">Applications</span> </a>
+                        </a>
 
-                        <a href="{{ route('profile') }}" class="nav_link"> <i class='bx bx-user-circle nav_icon'></i> <span
-                            class="nav_name">Profile</span> </a>
-
-                        <a href="{{ route('saved.jobs') }}" class="nav_link"> <i class='bx bx-heart nav_icon'></i> <span
-                            class="nav_name">Saved Jobs</span> </a>
                         @guest
                             @if (Route::has('login'))
                                 <a href="#" class="nav_link"> <i class='bx bx-log-in nav_icon'></i> <span
@@ -102,40 +96,46 @@
                                         class="nav_name">Register</span> </a>
                             @endif
                         @else
-                            <li>
-                                <a style="color: #afa5d9; margin-left: 10px;"
-                                    >
-                                    {{ Auth::user()->name }}
-                                </a>
+                            <div class="dropdown">
+                                <button class="dropdown-btn" aria-haspopup="menu">
+                                    <span>{{ Auth::user()->name }}</span>
+                                    <span class="arrow"></span>
+                                </button>
+                                <ul class="dropdown-content" role="menu">
+                                    <li style="--delay: 2;">
+                                        <a href="{{ route('profile') }}">Profile</a>
+                                    </li>
+                                    <li style="--delay: 2;">
+                                        <a href="{{ route('edit.details') }}">Update Profile</a>
+                                    </li>
+                                    <li style="--delay: 3;">
+                                        <a href="{{ route('saved.jobs') }}">Saved Jobs</a>
+                                    </li>
+                                    <li style="--delay: 1;"> <a " href="{{ route('applications') }}">Applications
+                                    </a></li>
+                                     
+                                    </ul>
+                                  </div>
+
+                                
+                                    
 
 
-                                {{-- <div>
-                                    <a href="{{ route('logout') }}"
-                                        onclick="event.preventDefault();
-                                                            document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
-
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST"
-                                        class="d-none">
-                                        @csrf
-                                    </form>
-                                </div> --}}
-                            </li>
-
+                                   
                         @endguest
                     </div>
-                </div> 
-                
+                </div>
+
                 <a href="{{ route('logout') }}"
                     onclick="event.preventDefault();
                                     document.getElementById('logout-form').submit();">
-                    <i class='bx bx-log-out nav_icon' style="color: #afa5d9; margin-left: 15px; margin-bottom: 20px; font-size: 30px;"></i>
+                    <i class='bx bx-log-out nav_icon'
+                        style="color: #afa5d9; margin-left: 15px; margin-bottom: 20px; font-size: 30px;"></i>
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                         @csrf
                     </form>
                 </a>
-                
+
             </nav>
         </div>
         <!--Container Main start-->

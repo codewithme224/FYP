@@ -113,11 +113,11 @@
                         <h5 class="mt-2 mb-0">{{ $profile->name }}</h5>
                         <span>{{ $profile->job_title }}</span>
 
-                        <button class="btn-ss " style="margin-left: 45px; height: 50px; display: block; padding-bottom: 15px;"><a style="color: black;" href="{{ asset('assets/cvs/'.$profile->cv.'') }}">Download CV <i class="fa-solid fa-download"></i></a>
+                        <button class="btn-ss " style="margin: 20 auto; height: 50px; display: block; padding-bottom: 15px;"><a style="color: black;" href="{{ asset('assets/cvs/'.$profile->cv.'') }}">Download CV <i class="fa-solid fa-download"></i></a>
                         </button>
 
                         <div class="px-4 mt-1">
-                            <p class="fonts">{{ $profile->bio }} </p>
+                            <p style="font-size: 17px" class="fonts">{{ $profile->bio }} </p>
 
                         </div>
 
