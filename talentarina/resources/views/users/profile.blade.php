@@ -66,7 +66,7 @@
         }
 
 
-        .buttons button:nth-child(1) {
+        /* .buttons button:nth-child(1) {
             border: 1px solid #E80078 !important;
             color: #E80078;
             height: 40px;
@@ -91,6 +91,48 @@
             background-color: #E80078;
             color: #fff;
             height: 40px;
+        } */
+
+        .buttons button {
+            border: 1px solid #E80078 !important;
+            color: #E80078;
+            height: 40px;
+            border-radius: 5px;
+            margin: 0 10px;
+            padding: 5px 10px;
+        }
+
+        .buttons button:hover {
+            border: 1px solid #E80078 !important;
+            color: #fff;
+            height: 40px;
+            background-color: #E80078;
+        }
+
+        .buttons button a {
+            color: black;
+            text-decoration: none
+        }
+
+        .buttons button a:hover {
+            color: white;
+            text-decoration: none
+        }
+
+        .profile-container {
+            position: relative;
+            display: inline-block;
+        }
+
+        .profile-icon {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            background-color: #E80078;
+            color: #fff;
+            border-radius: 50%;
+            padding: 5px;
+            cursor: pointer;
         }
     </style>
 </head>
@@ -98,22 +140,35 @@
 @section('content')
     <div class="container mt-5">
 
+        @if (\Session::has('update'))
+            <div class="alert alert-success">
+                <p>{!! \Session::get('update') !!}</p>
+            </div>
+        @endif
+
         <div class="row d-flex justify-content-center">
 
             <div class="col-md-7">
 
                 <div class="card p-3 py-4">
 
-                    <div class="text-center">
-                        <img src="{{ asset('assets/profile_images/images.png'.$profile->image.'') }}" width="100" class="rounded-circle">
+                    <div class="text-center profile-container">
+                        <img src="{{ asset('assets/profile_images/' . $profile->image . '') }}" width="100" height="100"
+                            style="border-radius: 10px">
+                        
+                        <a href="{{ route('edit.image') }}"><i class="fa-solid fa-camera profile-icon">
+                            
+                        </i></a>
                     </div>
 
                     <div class="text-center mt-3">
-                        {{-- <span class="bg-secondary p-1 px-4 rounded text-white">Pro</span> --}}
                         <h5 class="mt-2 mb-0">{{ $profile->name }}</h5>
                         <span>{{ $profile->job_title }}</span>
 
-                        <button class="btn-ss " style="margin: 20 auto; height: 50px; display: block; padding-bottom: 15px;"><a style="color: black;" href="{{ asset('assets/cvs/'.$profile->cv.'') }}">Download CV <i class="fa-solid fa-download"></i></a>
+                        <button class="btn-ss "
+                            style="margin: 20 auto; height: 50px; display: block; padding-bottom: 15px;"><a
+                                style="color: black;" href="{{ asset('assets/cvs/' . $profile->cv . '') }}">Download CV <i
+                                    class="fa-solid fa-download"></i></a>
                         </button>
 
                         <div class="px-4 mt-1">
@@ -136,13 +191,17 @@
                             <a href="{{ $profile->tiktok }}">
                                 <i class="fa-brands fa-tiktok"></i>
                             </a>
-                        
+
                         </ul>
 
                         <div class="buttons">
 
-                            <button class="btn btn-outline-primary px-4">Message</button>
-                            <button class="btn btn-primary px-4 ms-3">Contact</button>
+                            <button class="bt"> <a href="{{ route('edit.details') }}">Update
+                                    Profile</a>
+                            </button>
+                            <button class="bt">
+                                <a href="{{ route('edit.cv') }}">Update CV</a>
+                            </button>
                         </div>
 
 

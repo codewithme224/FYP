@@ -40,6 +40,13 @@ Route::get('/users/applications', [App\Http\Controllers\USers\UsersController::c
 Route::get('/users/savedjobs', [App\Http\Controllers\USers\UsersController::class, 'savedJobs'])->name('saved.jobs');
 
 Route::get('/users/edit-details', [App\Http\Controllers\Users\UsersController::class, 'editDetails'])->name('edit.details');
-Route::post('/users/edit=details', [App\Http\Controllers\Users\UsersController::class, 'updateDetails'])->name('update.details');
+Route::post('/users/edit-details', [App\Http\Controllers\Users\UsersController::class, 'updateDetails'])->name('update.details');
+
+
+Route::get('/users/edit-cv', [App\Http\Controllers\Users\UsersController::class, 'editCV'])->name('edit.cv');
+Route::post('/users/edit-cv', [App\Http\Controllers\Users\UsersController::class, 'updateCV'])->name('update.cv');
+
+Route::get('/users/edit-image', [App\Http\Controllers\Users\UsersController::class, 'editImage'])->name('edit.image');
+Route::post('/users/edit-image', [App\Http\Controllers\Users\UsersController::class, 'updateImage'])->name('update.image');
 
 

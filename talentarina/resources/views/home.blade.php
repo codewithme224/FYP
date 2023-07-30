@@ -4,17 +4,23 @@
     <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img src="{{ asset('assets/images/slider1.png') }}" class="d-block w-100" alt="...">
+                <img src="{{ asset('assets/images/slide1.png') }}" class="d-block w-100" alt="...">
                 <div class="slider-text">
                     <h1>Welcome to TalentArina</h1>
+                    <p>Your Gateway to Empowering Careers and Endless Opportunities! Uncover the Path to Professional Success as You Connect with Leading Companies, Network with Industry Experts, and Embark on a Journey of Discovery.</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="{{ asset('assets/images/slide2.png') }}" class="d-block w-100" alt="...">
+                <div class="slider-text2">
+                    <h1>Step into a World of Career Exploration and Achievements</h1>
                     <p>Your Gateway to Empowering Careers and Endless Opportunities! Uncover the Path to Professional Success as You Connect with Leading Companies, Network with Industry Experts, and Embark on a Journey of Discovery. Elevate Your Job Search with a Transformative Experience, Where Your Ambitions Are Fueled and Dreams Take Flight. Join TalentArina Today and Embrace a New Era of Career Advancement - Your Future Starts Here!</p>
                 </div>
             </div>
             <div class="carousel-item">
-                <img src="{{ asset('assets/images/slider2.png') }}" class="d-block w-100" alt="...">
-                <div class="slider-text2">
-                    <h1>Step into a World of Career Exploration and Achievements</h1>
-                    <p>Your Gateway to Empowering Careers and Endless Opportunities! Uncover the Path to Professional Success as You Connect with Leading Companies, Network with Industry Experts, and Embark on a Journey of Discovery. Elevate Your Job Search with a Transformative Experience, Where Your Ambitions Are Fueled and Dreams Take Flight. Join TalentArina Today and Embrace a New Era of Career Advancement - Your Future Starts Here!</p>
+                <img src="{{ asset('assets/images/slide3.png') }}" class="d-block w-100" alt="...">
+                <div class="slider-text3">
+                    <h1>Success Starts Here: Transform Your Job Search with TalentArina's Visionary Virtual Fair</h1>
                 </div>
             </div>
         </div>

@@ -10,7 +10,7 @@ style="background-image: url('images/hero_1.jpg'); background-color: #15121A;" i
             <h1 class="text-white font-weight-bold">Update Profile</h1>
             <div class="custom-breadcrumbs">
                 <a href="#">Home</a> <span class="mx-2 slash">/</span>
-                <a href="#">Job</a> <span class="mx-2 slash">/</span>
+                <a href="{{ route('profile') }}">Profile</a> <span class="mx-2 slash">/</span>
                 <span class="text-white"><strong>Update Profile</strong></span>
             </div>
         </div>

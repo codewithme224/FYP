@@ -96,7 +96,7 @@
                                         class="nav_name">Register</span> </a>
                             @endif
                         @else
-                            <div class="dropdown">
+                            <div class="dropdown" style="margin-top: -px">
                                 <button class="dropdown-btn" aria-haspopup="menu">
                                     <span>{{ Auth::user()->name }}</span>
                                     <span class="arrow"></span>
@@ -105,13 +105,10 @@
                                     <li style="--delay: 2;">
                                         <a href="{{ route('profile') }}">Profile</a>
                                     </li>
-                                    <li style="--delay: 2;">
-                                        <a href="{{ route('edit.details') }}">Update Profile</a>
-                                    </li>
-                                    <li style="--delay: 3;">
+                                    <li style="--delay: 4;">
                                         <a href="{{ route('saved.jobs') }}">Saved Jobs</a>
                                     </li>
-                                    <li style="--delay: 1;"> <a " href="{{ route('applications') }}">Applications
+                                    <li style="--delay: 5;"> <a " href="{{ route('applications') }}">Applications
                                     </a></li>
                                      
                                     </ul>
