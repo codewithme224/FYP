@@ -52,6 +52,17 @@ class UsersController extends Controller
 
     public function updateDetails(Request $request)
     {
+        Request()->validate([
+            'name' => 'required|max:40',
+            'job_title' => 'required|max:40',
+            'bio' => 'required',
+            'facebook' => 'required|url|max:155',
+            'linkedin' => 'required|url|max:155',
+            'twitter' => 'required|url|max:155',
+            
+        ]);
+
+
         $userDetailsUpdate = User::find(Auth::user()->id);
 
         $userDetailsUpdate->update([
@@ -79,6 +90,9 @@ class UsersController extends Controller
 
     public function updateCV(Request $request)
     {
+        Request()->validate([
+            'cv' => 'required|mimes:pdf|max:10000',
+        ]);
         $deleteOldCV = User::find(Auth::user()->id);
 
         if (File::exists(public_path('assets/cvs/' . $deleteOldCV->cv))) {
@@ -111,6 +125,8 @@ class UsersController extends Controller
 
     public function updateImage(Request $request)
     {
+
+        // Get the user
         $user = User::find(Auth::user()->id);
 
         // Validate the uploaded image

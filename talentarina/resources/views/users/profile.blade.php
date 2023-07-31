@@ -138,6 +138,23 @@
 </head>
 
 @section('content')
+    <section class="section-hero overlay inner-page bg-image"
+        style="background-image: url('images/hero_1.jpg'); background-color: #15121A;" id="home-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-7">
+                    <h1 class="text-white font-weight-bold"> Profile</h1>
+                    <div class="custom-breadcrumbs">
+                        <a href="{{ url('/')}}">Home</a> <span class="mx-2 slash">/</span>
+                        
+                        <span class="text-white"><strong> Profile</strong></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
     <div class="container mt-5">
 
         @if (\Session::has('update'))
@@ -153,12 +170,12 @@
                 <div class="card p-3 py-4">
 
                     <div class="text-center profile-container">
-                        <img src="{{ asset('assets/profile_images/' . $profile->image . '') }}" width="100" height="100"
-                            style="border-radius: 10px">
-                        
+                        <img src="{{ asset('assets/profile_images/' . $profile->image . '') }}" width="100"
+                            height="100" style="border-radius: 10px">
+
                         <a href="{{ route('edit.image') }}"><i class="fa-solid fa-camera profile-icon">
-                            
-                        </i></a>
+
+                            </i></a>
                     </div>
 
                     <div class="text-center mt-3">

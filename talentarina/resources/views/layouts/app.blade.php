@@ -36,6 +36,7 @@
     <link rel="stylesheet" href="{{ asset('assets/css/home.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/single-page.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/forms.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/contact.css') }}">
 
     <!-- MAIN CSS -->
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
@@ -77,12 +78,16 @@
             <nav class="nav">
                 <div class="nav-icons"> <a href="{{ url('/') }}" class="nav_logo"> <i
                             class='bx bx-layer nav_logo-icon'></i> <span class="nav_logo-name">TalentArina</span> </a>
-                    <div class="nav_list"> <a href="index.html" class="nav_link active"> <i
-                                class='bx bx-home nav_icon'></i> <span class="nav_name">Home</span> </a> <a
-                            href="#" class="nav_link"> <i class='bx bx-user nav_icon'></i> <span
-                                class="nav_name">About</span> </a> <a href="#" class="nav_link"> <i
-                                class='bx bx-message-square-detail nav_icon'></i> <span class="nav_name">Contact</span>
-                        </a> <a href="#" class="nav_link"> <i class='bx bx-plus nav_icon'></i> <span
+                    <div class="nav_list">
+                        <a href="{{ url('/') }}" class="nav_link active"> <i class='bx bx-home nav_icon'></i> <span
+                                class="nav_name">Home</span> </a>
+                        <a href="{{ route('about') }}" class="nav_link"> <i class='bx bx-user nav_icon'></i> <span
+                                class="nav_name">About</span>
+                        </a>
+                        <a href="{{ route('contact') }}" class="nav_link"> <i class='bx bx-message-square-detail nav_icon'></i> <span
+                                class="nav_name">Contact</span>
+                        </a>
+                        <a href="{{ route('post_job') }}" class="nav_link"> <i class='bx bx-plus nav_icon'></i> <span
                                 class="nav_name">Post a Job</span> </a>
                         </a>
 
@@ -109,16 +114,16 @@
                                         <a href="{{ route('saved.jobs') }}">Saved Jobs</a>
                                     </li>
                                     <li style="--delay: 5;"> <a " href="{{ route('applications') }}">Applications
-                                    </a></li>
-                                     
-                                    </ul>
-                                  </div>
+                                                            </a></li>
+                                                             
+                                                            </ul>
+                                                          </div>
 
-                                
-                                    
+                                                        
+                                                            
 
 
-                                   
+                                                           
                         @endguest
                     </div>
                 </div>

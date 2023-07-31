@@ -30,4 +30,19 @@ class HomeController extends Controller
 
         return view('home', compact('jobs', 'total_jobs'));
     }
+    public function about()
+    {
+
+        return view('pages.about');
+    }
+    public function contact()
+    {
+
+        return view('pages.contact');
+    }
+    public function post_job()
+    {
+
+        return view('pages.post_job');
+    }
 }

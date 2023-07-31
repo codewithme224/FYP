@@ -27,9 +27,12 @@ style="background-image: url('images/hero_1.jpg'); background-color: #15121A;" i
         @csrf
         <h2>Update Your CV</h2>
       <div class="form-group">
-        <label for="email">CV</label>
+        <label for="file">CV</label>
         <input type="file" id="cv" name="cv" required="">
       </div>
+      @if ($errors->has('cv'))
+          <p class="alert alert-danger">{{ $errors->first('cv') }}</p>
+      @endif
       
       <button class="btn-ss" style="width: 40%; margin: 0 auto;" type="submit" name="submit">Update</button>
     </form>
