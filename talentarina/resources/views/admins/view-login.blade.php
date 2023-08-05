@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 <head>
 <style>
 
@@ -27,7 +27,7 @@
 
 .field {
   height: 50px;
-  width: 150%;
+  width: 100%;
   margin-bottom: 30px;
   display: flex;
   position: relative;
@@ -154,7 +154,7 @@
          <div class="text">
             Login
          </div>
-         <form method="POST" action="{{ route('login') }}">
+         <form method="POST" action="{{ route('check.login') }}">
             @csrf
             <div class="field">
                <input placeholder="Email Address" id="email" type="email" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus class="input @error('email') is-invalid @enderror">
@@ -192,7 +192,7 @@
             @endif
             </div>
             <div class="sign-up">
-                Don't have an account? <a href="{{ route('register') }}">Sign Up</a>
+                Don't have an account? <a href="{{ route('check.signup') }}">Sign Up</a>
             </div>
          </form>
       </div>

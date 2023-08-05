@@ -33,27 +33,36 @@
     </section>
 
 
-    <form method="post" class="search-jobs-form">
+    <form method="post" class="search-jobs-form" action="{{ route('search.job') }}">
+        @csrf
         <div class="row1">
             <div class="col1">
-                <input type="text" class="search-input" placeholder="Job title, Company...">
+                <input name="job_title" type="text" class="search-input" placeholder="Job title">
             </div>
             <div class="location-container">
-                <select class="select2" data-width="100%" data-live-search="true" title="Select Region">
+                <select name="job_region" class="select2" data-width="100%" data-live-search="true" title="Select Region">
                     <option>Select Region</option>
-                    <option>Anywhere</option>
-                    <option>San Francisco</option>
-                    <option>Palo Alto</option>
-                    <option>New York</option>
-                    <option>Manhattan</option>
-                    <option>Ontario</option>
-                    <option>Toronto</option>
-                    <option>Kansas</option>
-                    <option>Mountain View</option>
+                    <option value="Anywhere">Anywhere</option>
+                    <option>Ahafo Region</option>
+                    <option>Ashanti Region</option>
+                    <option>Bono East</option>
+                    <option>Bono Region</option>
+                    <option>Central Region</option>
+                    <option>Eastern Region</option>
+                    <option>Greater Accra</option>
+                    <option>North East</option>
+                    <option>Northern Region</option>
+                    <option>Oti Region</option>
+                    <option>Savannah Region</option>
+                    <option>Upper East</option>
+                    <option>Upper West</option>
+                    <option>Volta Region</option>
+                    <option>Western North</option>
+                    <option>Western Region</option>
                 </select>
             </div>
             <div class="location-container">
-                <select class="select2" data-style="btn-white btn-lg" data-width="100%" data-live-search="true"
+                <select name="job_type" class="select2" data-style="btn-white btn-lg" data-width="100%" data-live-search="true"
                     title="Select Job Type">
                     <option>Select Job Type</option>
                     <option>Part Time</option>
@@ -61,7 +70,7 @@
                 </select>
             </div>
             <div class="btn-container">
-                <button class="btn-search">
+                <button type="submit" name="submit" class="btn-search">
                     Search Job
                 </button>
             </div>
@@ -70,9 +79,9 @@
             <div class="row2-container">
                 <h3>Trending Keywords:</h3>
                 <ul class="keyword">
-                    <li><a href="#" class="">UI Designer</a></li>
-                    <li><a href="#" class="">Python</a></li>
-                    <li><a href="#" class="">Developer</a></li>
+                    @foreach ($duplicates as $duplicate)
+                        <li><a href="#" class="">{{ $duplicate->keyword }}</a></li>
+                    @endforeach
                 </ul>
             </div>
         </div>

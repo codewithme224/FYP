@@ -93,11 +93,11 @@
 
                         @guest
                             @if (Route::has('login'))
-                                <a href="#" class="nav_link"> <i class='bx bx-log-in nav_icon'></i> <span
+                                <a href="{{ route('login') }}" class="nav_link"> <i class='bx bx-log-in nav_icon'></i> <span
                                         class="nav_name">Log In</span> </a>
                             @endif
                             @if (Route::has('register'))
-                                <a href="#" class="nav_link"> <i class='bx bx-user-plus nav_icon'></i> <span
+                                <a href="{{ route('register')}}" class="nav_link"> <i class='bx bx-user-plus nav_icon'></i> <span
                                         class="nav_name">Register</span> </a>
                             @endif
                         @else

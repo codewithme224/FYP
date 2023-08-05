@@ -95,26 +95,30 @@
 
                         <div class="row mb-5">
                             <div class="col-6">
-                                <form action="{{ route('save.job') }}" method="POST">
-                                    @csrf
-                                    <input name="job_id" type="hidden" value="{{ $job->id }}">
-                                    <input name="user_id" type="hidden" value="{{ Auth::user()->id }}">
-                                    <input name="image" type="hidden" value="{{ $job->image }}">
-                                    <input name="job_title" type="hidden" value="{{ $job->job_title }}">
-                                    <input name="job_region" type="hidden" value="{{ $job->job_region }}">
-                                    <input name="job_type" type="hidden" value="{{ $job->job_type }}">
-                                    <input name="company" type="hidden" value="{{ $job->company }}">
+                                @if (isset(Auth::user()->id))
+                                    <form action="{{ route('save.job') }}" method="POST">
+                                        @csrf
+                                        <input name="job_id" type="hidden" value="{{ $job->id }}">
+                                        <input name="user_id" type="hidden" value="{{ Auth::user()->id }}">
+                                        <input name="image" type="hidden" value="{{ $job->image }}">
+                                        <input name="job_title" type="hidden" value="{{ $job->job_title }}">
+                                        <input name="job_region" type="hidden" value="{{ $job->job_region }}">
+                                        <input name="job_type" type="hidden" value="{{ $job->job_type }}">
+                                        <input name="company" type="hidden" value="{{ $job->company }}">
 
-                                    @if ($saveJob > 0)
-                                        <button class="btn btn-block btn-light btn-md" disabled><i class="fa-solid fa-heart"
-                                                style="color: #ff0f7b; font-size: 20px;"></i></i>You saved this job</button>
-                                    @else
-                                        <button name="submit" type="submit" class="btn btn-block btn-light btn-md"><i
-                                                class="fa-solid fa-heart"
-                                                style="color: #ff0f7b; font-size: 20px;"></i></i>Save Job</button>
-                                    @endif
-                                </form>
-                                <!--add text-danger to it to make it read-->
+                                        @if ($saveJob > 0)
+                                            <button class="btn btn-block btn-light btn-md" disabled><i
+                                                    class="fa-solid fa-heart"
+                                                    style="color: #ff0f7b; font-size: 20px;"></i></i>You saved this
+                                                job</button>
+                                        @else
+                                            <button name="submit" type="submit" class="btn btn-block btn-light btn-md"><i
+                                                    class="fa-solid fa-heart"
+                                                    style="color: #ff0f7b; font-size: 20px;"></i></i>Save Job</button>
+                                        @endif
+                                    </form>
+                                @endif
+
                             </div>
                             <div class="col-6">
                                 <form action="{{ route('apply.job') }}" method="POST">
@@ -126,10 +130,15 @@
                                     <input name="job_type" type="hidden" value="{{ $job->job_type }}">
                                     <input name="company" type="hidden" value="{{ $job->company }}">
 
-                                    @if ($appliedJob > 0)
-                                        <button class="btn-ss" disabled>You applied for this job</button>
-                                    @else
-                                        <button type="submit" name="submit" class="btn-ss">Apply Now</button>
+                                    @if (isset(Auth::user()->id))
+                                        @if ($appliedJob > 0)
+                                            <button class="btn-ss" disabled>You applied for this job</button>
+                                        @else
+                                            <button type="submit" name="submit" class="btn-ss">Apply Now</button>
+                                        @endif
+                                    @else {
+                                        <a href="{{ route('login') }}" type="submit" name="submit" class="btn-ss" style="text-decoration: none">Login to apply for this job</a>
+                                    }
                                     @endif
 
 
@@ -228,7 +237,8 @@
                             <ul class="list-unstyled pl-3 mb-0">
                                 @foreach ($categories as $category)
                                     <li class="mb-2">
-                                        <a class="text-decoration-none" href="{{ route('categories.single', $category->name) }}">{{ $category->name }}</a>
+                                        <a class="text-decoration-none"
+                                            href="{{ route('categories.single', $category->name) }}">{{ $category->name }}</a>
                                     </li>
                                 @endforeach
 
@@ -249,7 +259,8 @@
                 </div>
             </div>
 
-            <div class="job-container" style=" background-color: #15121A; width: 100%; margin-left: -15px; padding-left: 10px; padding-right: 10px;">
+            <div class="job-container"
+                style=" background-color: #15121A; width: 100%; margin-left: -15px; padding-left: 10px; padding-right: 10px;">
 
                 @foreach ($relatedJobs as $job)
                     <div class="card-job-post" style="padding: 10px">

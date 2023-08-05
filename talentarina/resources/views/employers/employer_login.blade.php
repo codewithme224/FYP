@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.employer')
 <head>
 <style>
 
@@ -27,7 +27,7 @@
 
 .field {
   height: 50px;
-  width: 150%;
+  width: 100%;
   margin-bottom: 30px;
   display: flex;
   position: relative;
@@ -154,7 +154,15 @@
          <div class="text">
             Login
          </div>
-         <form method="POST" action="{{ route('login') }}">
+         @if(Session::has('error'))
+         <div class="alert alert-warning alert-dismissible fade show" role="alert">
+          <strong> {{ session::get('error')}} </strong>
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+          @endif
+         <form method="POST" action="{{ route('employer.login')}}">
             @csrf
             <div class="field">
                <input placeholder="Email Address" id="email" type="email" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus class="input @error('email') is-invalid @enderror">
@@ -192,7 +200,7 @@
             @endif
             </div>
             <div class="sign-up">
-                Don't have an account? <a href="{{ route('register') }}">Sign Up</a>
+                Don't have an account? <a href="">Sign Up</a>
             </div>
          </form>
       </div>
