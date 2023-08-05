@@ -1,4 +1,4 @@
-@extends('layouts.employer')
+@extends('employers.employer')
 <head>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
@@ -189,7 +189,8 @@ body {
 </style>
 </head>
 
-@section('content')
+@section('employers')
+
 @if (session('success'))
     <div class="alert alert-success">{{ session('success') }}</div>
 @endif
@@ -201,7 +202,7 @@ body {
 <div class="container-1">
 <div class="content">
         <div class="text">{{ __('Register') }}</div>
-         <form method="POST" action="{{ route('check.signup') }}">
+         <form method="POST" action="{{ route('employer.signup.create') }}">
             @csrf
 
             <!-- Name -->
@@ -252,7 +253,7 @@ body {
                <span class="span"><svg class="" xml:space="preserve" style="enable-background:new 0 0 512 512" viewBox="0 0 512 512" y="0" x="0" height="20" width="50" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" xmlns="http://www.w3.org/2000/svg"><g><path class="" data-original="#000000" fill="#595959" d="M336 192h-16v-64C320 57.406 262.594 0 192 0S64 57.406 64 128v64H48c-26.453 0-48 21.523-48 48v224c0 26.477 21.547 48 48 48h288c26.453 0 48-21.523 48-48V240c0-26.477-21.547-48-48-48zm-229.332-64c0-47.063 38.27-85.332 85.332-85.332s85.332 38.27 85.332 85.332v64H106.668zm0 0"></path></g></svg></span>
             </div>
             <button class="button-register">{{ __('Signup') }}</button>
-            <div class="text-2" style="color: black">Already have an account? <a href="{{ route('check.login') }}">Login</a></div>
+            <div class="text-2" style="color: black">Already have an account? <a href="{{ route('employer.login') }}">Login</a></div>
          </form>
       </div>
 

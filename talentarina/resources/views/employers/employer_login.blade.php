@@ -1,4 +1,4 @@
-@extends('layouts.employer')
+@extends('employers.employer')
 <head>
 <style>
 
@@ -148,7 +148,7 @@
 }
 </style>
 </head>
-@section('content')
+@section('employers')
 <div class="container-1">
 <div class="content">
          <div class="text">
@@ -200,7 +200,7 @@
             @endif
             </div>
             <div class="sign-up">
-                Don't have an account? <a href="">Sign Up</a>
+                Don't have an account? <a href="employer.signup">Sign Up</a>
             </div>
          </form>
       </div>
