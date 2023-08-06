@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <section class="hero-c-container">
+    {{-- <section class="hero-c-container">
         <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active">
@@ -30,7 +30,9 @@
         <div class="right-card">
             <h2>CARD</h2>
         </div>
-    </section>
+    </section> --}}
+
+   
 
 
     <form method="post" class="search-jobs-form" action="{{ route('search.job') }}">

@@ -200,7 +200,7 @@
             @endif
             </div>
             <div class="sign-up">
-                Don't have an account? <a href="employer.signup">Sign Up</a>
+                Don't have an account? <a href="{{ route('employer.signup') }}">Sign Up</a>
             </div>
          </form>
       </div>

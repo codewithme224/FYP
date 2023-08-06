@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Employers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Employer;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -54,7 +55,11 @@ class EmployersController extends Controller
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
+            'created_at' => Carbon::now(), 
         ]);
+
+        return redirect()->route('employer_form')->with('error', 'You have Signup Successfully');
+
 
     }
 
