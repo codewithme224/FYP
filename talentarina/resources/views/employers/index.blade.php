@@ -3,13 +3,14 @@
 @section('employers')
     <div class="wrapper d-flex align-items-stretch">
         <nav id="sidebar" class="active">
+            @auth('employer')
             <h1><a href="index.html" class="logo">E.</a></h1>
             <ul class="list-unstyled components mb-5">
                 <li class="active">
-                    <a href="#"><span class="fa fa-home"></span> Home</a>
+                    <a href="{{ route('employer.dashboard')}}"><span class="fa fa-home"></span> Home</a>
                 </li>
                 <li>
-                    <a href="#"><span class="fa fa-user"></span> Admins</a>
+                    <a href="{{ route('views.admins')}}"><span class="fa fa-user"></span> Admins</a>
                 </li>
                 <li>
                     <a href="#"><span class="fa fa-sticky-note"></span> Categories</a>
@@ -31,13 +32,6 @@
 
                 </li>
 
-                {{-- <li>
-            <a href="{{ route('employer.logout') }}">
-                    <i class='bx bx-log-out nav_icon'
-                        style="color: #afa5d9; margin-left: 15px; margin-bottom: 20px; font-size: 30px;"></i>
-                    <span class="nav_name">Logout</span>
-                </a>
-          </li> --}}
             </ul>
 
             <div class="footer">
@@ -48,6 +42,7 @@
                     </script> All rights reserved | TalentArina <i class="icon-heart" aria-hidden="true"></i>
                 </p>
             </div>
+            @endauth
         </nav>
 
         <!-- Page Content  -->
@@ -67,22 +62,22 @@
                     </button>
 
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        @auth('employer')
                         <ul class="nav navbar-nav ml-auto">
                             <li class="nav-item active">
-                                <a class="nav-link" href="#">Home</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">About</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Portfolio</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Contact</a>
+                                <a class="nav-link" href="{{ route('employer.dashboard')}}">Home</a>
                             </li>
                         </ul>
+
+                        <div class="dropdown" style="margin-top: -px">
+                            <button class="dropdown-btn" aria-haspopup="menu"
+                                style="padding: 5px 20px; border: none; border-radius: 10px;">
+                                <span>{{ Auth::guard('employer')->user()->name }}</span>
+                                <span class="arrow"></span>
+                            </button>
+                        </div>
+                        @endauth
                     </div>
-                </div>
             </nav>
 
             <div class="container-fluid">
@@ -93,7 +88,7 @@
                             <div class="card-body">
                                 <h5 class="card-title">Jobs</h5>
                                 <!-- <h6 class="card-subtitle mb-2 text-muted">Bootstrap 4.0.0 Snippet by pradeep330</h6> -->
-                                <p class="card-text">number of jobs: 8</p>
+                                <p class="card-text">number of jobs: {{$jobs}}</p>
 
                             </div>
                         </div>
@@ -103,7 +98,7 @@
                             <div class="card-body">
                                 <h5 class="card-title">Categories</h5>
 
-                                <p class="card-text">number of categories: 4</p>
+                                <p class="card-text">number of categories: {{$categories}}</p>
 
                             </div>
                         </div>
@@ -123,7 +118,7 @@
                             <div class="card-body">
                                 <h5 class="card-title">Applications</h5>
 
-                                <p class="card-text">number of applications: 3</p>
+                                <p class="card-text">number of applications: {{$application}}</p>
 
                             </div>
                         </div>

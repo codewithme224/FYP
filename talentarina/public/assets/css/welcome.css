@@ -125,6 +125,57 @@
 
 }
 
+.copyright {
+    top: 93%;
+    right: 35%;
+    position: absolute;
+    font-size: 18px;
+    bottom: 0;
+}
+
+/* on smaller screens */
+@media (max-width: 768px) {
+    .navbar-container .navbar .navbar-brand {
+        font-size: 18px;
+        margin-left: -40px;
+    }
+
+    .navbar-collapse {
+        padding: 0;
+        background-color: #fff;
+        padding: 20px;
+    }
+
+    .navlink {
+        font-size: 18px;
+        margin: 5px;
+        padding-left: 10px;
+        
+    }
+    .side-container {
+        width: 60px;
+        height: 80%;
+        top: 15%;
+    }
+    .side-container-content h1 {
+        font-size: 14px;
+    }
+    .side-container-content .line {
+        height: 100px;
+    }
+    .side-container-icon {
+        font-size: 20px;
+    }
+
+    .copyright {
+        top: 93%;
+        right: 10%;
+        position: absolute;
+        font-size: 16px;
+        bottom: 0;
+    }
+}
+
 
 .main-container {
    display: grid;
@@ -246,6 +297,146 @@
 
 
     
+}
+
+/* On small screens */
+@media only screen and (max-width: 768px) {
+    .main-container {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr;
+    }
+
+    .main-container-content {
+        /* background-color: #fff; */
+        background: #ff94ad;
+        border-radius: 10px;
+        box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+        height: 80%;
+        position: fixed;
+        top: 12%;
+        width: 70%;
+        left: 20%;
+        border-radius: 10px;
+        padding: 20px;
+        margin: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+
+    .main-container-content-text h1 {
+        font-size: 40px;
+        font-weight: 600;
+        margin: 10px 0;
+        text-align: left;
+        text-transform: uppercase;
+        /* position it to the left */
+        position: absolute;
+        left: 10%;
+        top: 7%;
+        font-family: 'Roboto', sans-serif;
+    }
+
+    .main-container-content-text .arch {
+        /* line under the text */
+        background-color: black;
+        height: 2px;
+        width: 47%;
+        margin: 10px 0;
+        position: absolute;
+        left: 6%;
+        top: 70%;
+    }
+
+    .main-container-content-text svg {
+        width: 40px;
+        height: 40px;
+        position: absolute;
+        left: 5%;
+        top: 64%;
+    }
+
+    .main-container-content-text .search {
+        margin: 10px 0;
+        position: absolute;
+        left: 20%;
+        top: 62%;
+        display: flex;
+        flex-direction: row;
+        border: 1px solid black;
+        padding: 8px 16px;
+        border-radius: 10px;
+    }
+
+    .main-container-content-text .search i {
+        padding-left: 10px;
+        color: white;
+        font-size: 20px;
+    }
+
+    .main-container-image img {
+        /* position it to the right */
+        position: absolute;
+        right: -60px;
+        top: 18%;
+        /* increase the size */
+        width: 700px;
+        height: auto;
+    }
+
+    .main-container-image .arch {
+        /* line under the image */
+        background-color: black;
+        height: 2px;
+        width: 45%;
+        margin: 10px 0;
+        position: absolute;
+        right: 10%;
+        top: 56%;
+    }
+
+     .circle-container {
+        /* display: none; */
+        border-radius: 50%;
+        box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+        height: 30px;
+        width: 30px;
+        position: absolute;
+        left: 6%;
+        top: 45%;
+        margin-top: 40px;
+        background: #fe6e93;
+        background: -moz-linear-gradient(top, #ff94ad 0%, #a20f48 100%);
+        background: -webkit-linear-gradient(top, #ff94ad 0%, #a20f48 100%);
+        transform: rotate(45deg);
+        z-index: 1000;
+    }
+
+    .circle-container h1 {
+        color: white;
+        font-size: 24px;
+        font-weight: 600;
+        margin: 10px 0;
+        text-align: center;
+        text-transform: uppercase;
+    }
+
+    .design-elements {
+        top: 80%;
+        left: 58%;
+        position: absolute;
+    }
+
+    .design-elements svg {
+        width: 80px;
+        height: 80px;
+        margin-top: 30px;
+    
+    }
+
 }
 
 .circle-container {
@@ -374,6 +565,108 @@
   }
 
 
+
+  /* preloader */
+  #page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  #container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+  
+  #h3 {
+    color: rgb(82, 79, 79);
+  }
+  
+  #ring {
+    width: 190px;
+    height: 190px;
+    border: 1px solid transparent;
+    border-radius: 50%;
+    position: absolute;
+  }
+  
+  #ring:nth-child(1) {
+    border-bottom: 8px solid rgb(240, 42, 230);
+    animation: rotate1 2s linear infinite;
+  }
+  
+  @keyframes rotate1 {
+    from {
+      transform: rotateX(50deg) rotateZ(110deg);
+    }
+  
+    to {
+      transform: rotateX(50deg) rotateZ(470deg);
+    }
+  }
+  
+  #ring:nth-child(2) {
+    border-bottom: 8px solid rgb(240, 19, 67);
+    animation: rotate2 2s linear infinite;
+  }
+  
+  @keyframes rotate2 {
+    from {
+      transform: rotateX(20deg) rotateY(50deg) rotateZ(20deg);
+    }
+  
+    to {
+      transform: rotateX(20deg) rotateY(50deg) rotateZ(380deg);
+    }
+  }
+  
+  #ring:nth-child(3) {
+    border-bottom: 8px solid rgb(3, 170, 170);
+    animation: rotate3 2s linear infinite;
+  }
+  
+  @keyframes rotate3 {
+    from {
+      transform: rotateX(40deg) rotateY(130deg) rotateZ(450deg);
+    }
+  
+    to {
+      transform: rotateX(40deg) rotateY(130deg) rotateZ(90deg);
+    }
+  }
+  
+  #ring:nth-child(4) {
+    border-bottom: 8px solid rgb(207, 135, 1);
+    animation: rotate4 2s linear infinite;
+  }
+  
+  @keyframes rotate4 {
+    from {
+      transform: rotateX(70deg) rotateZ(270deg);
+    }
+  
+    to {
+      transform: rotateX(70deg) rotateZ(630deg);
+    }
+  }
+  /* Improving visualization in light mode */
+
+
+  .spinner-wrapper {
+    background-color: white;
+    top: 0;
+    left: 0;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 1s;
+  }
 
 
   

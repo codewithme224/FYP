@@ -1,10 +1,14 @@
 {
     "cSpell.words": [
+        "checkauth",
+        "checkforauth",
+        "editadmins",
         "editcv",
         "editdetails",
         "editimage",
         "myimage",
         "savedjobs",
-        "tiktok"
+        "tiktok",
+        "updateadmins"
     ]
 }

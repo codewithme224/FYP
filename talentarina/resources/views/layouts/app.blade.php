@@ -56,11 +56,14 @@
     <!-- Background style -->
     <style>
         body {
-            /* background-color: white; */
             background-color: #e5e5f7;
-            /* opacity: 0.8; */
-            /* background-image: radial-gradient(#444cf7 0.5px, #e5e5f7 0.5px);
-            background-size: 10px 10px; */
+        }
+
+        .header_user {
+            margin-right: 60px;
+            padding: 10px;
+            margin-top: -70px;
+            position: relative;
         }
     </style>
 
@@ -72,72 +75,77 @@
 
         <!-- Header -->
         <header class="header" id="header">
-            <div class="header_toggle"> <i class='bx bx-menu' id="header-toggle"></i> </div>
-            <div class="header_img"> </div>
+            <div class="header_toggle"> <i class='bx bx-menu' id="header-toggle" style="color: #E80078"></i> </div>
+            <div class="header_user">
+                @auth('web') 
+                <div class="dropdown">
+                    <button class="dropdown-btn" aria-haspopup="menu" style="padding: 10px 25px">
+                        <span style="padding-right: 10px;">{{ Auth::user()->name }}</span>
+                        <span class="arrow"></span>
+                    </button>
+                    <ul class="dropdown-content" role="menu">
+                        <li style="--delay: 2;">
+                            <a href="{{ route('profile') }}">Profile</a>
+                        </li>
+                        <li style="--delay: 4;">
+                            <a href="{{ route('saved.jobs') }}">Saved Jobs</a>
+                        </li>
+                        <li style="--delay: 5;"> <a " href="{{ route('applications') }}">Applications
+                                                    </a></li>
+                                                     
+                                                    </ul>
+                </div>
+                @endauth
+            </div>
         </header>
-        <div class="l-navbar" id="nav-bar">
+        <div class="l-navbar" id="nav-bar" style="background-color: #E80078">
             <nav class="nav">
-                <div class="nav-icons"> <a href="{{ url('/') }}" class="nav_logo"> <i
+                <div class="nav-icons"> <a href="{{ route('home') }}" class="nav_logo"> <i
                             class='bx bx-layer nav_logo-icon'></i> <span class="nav_logo-name">TalentArina</span> </a>
                     <div class="nav_list">
-                        <a href="{{ url('/') }}" class="nav_link active"> <i class='bx bx-home nav_icon'></i> <span
-                                class="nav_name">Home</span> </a>
+                        <a href="{{ route('home') }}" class="nav_link active"> <i class='bx bx-home nav_icon'></i>
+                            <span class="nav_name">Home</span> </a>
                         <a href="{{ route('about') }}" class="nav_link"> <i class='bx bx-user nav_icon'></i> <span
                                 class="nav_name">About</span>
                         </a>
-                        <a href="{{ route('contact') }}" class="nav_link"> <i class='bx bx-message-square-detail nav_icon'></i> <span
-                                class="nav_name">Contact</span>
+                        <a href="{{ route('contact') }}" class="nav_link"> <i
+                                class='bx bx-message-square-detail nav_icon'></i> <span class="nav_name">Contact</span>
                         </a>
-                        <a href="{{ route('post_job') }}" class="nav_link"> <i class='bx bx-plus nav_icon'></i> <span
+                        {{-- <a href="{{ route('post_job') }}" class="nav_link"> <i class='bx bx-plus nav_icon'></i> <span
                                 class="nav_name">Post a Job</span> </a>
-                        </a>
+                        </a> --}}
 
                         @guest
                             @if (Route::has('login'))
-                                <a href="{{ route('login') }}" class="nav_link"> <i class='bx bx-log-in nav_icon'></i> <span
-                                        class="nav_name">Log In</span> </a>
+                                <a href="{{ route('login') }}" class="nav_link"> <i class='bx bx-log-in nav_icon'></i>
+                                    <span class="nav_name">Log In</span> </a>
                             @endif
                             @if (Route::has('register'))
-                                <a href="{{ route('register')}}" class="nav_link"> <i class='bx bx-user-plus nav_icon'></i> <span
-                                        class="nav_name">Register</span> </a>
+                                <a href="{{ route('register') }}" class="nav_link"> <i
+                                        class='bx bx-user-plus nav_icon'></i> <span class="nav_name">Register</span> </a>
                             @endif
                         @else
-                            <div class="dropdown" style="margin-top: -px">
-                                <button class="dropdown-btn" aria-haspopup="menu">
-                                    <span>{{ Auth::user()->name }}</span>
-                                    <span class="arrow"></span>
-                                </button>
-                                <ul class="dropdown-content" role="menu">
-                                    <li style="--delay: 2;">
-                                        <a href="{{ route('profile') }}">Profile</a>
-                                    </li>
-                                    <li style="--delay: 4;">
-                                        <a href="{{ route('saved.jobs') }}">Saved Jobs</a>
-                                    </li>
-                                    <li style="--delay: 5;"> <a " href="{{ route('applications') }}">Applications
-                                                            </a></li>
-                                                             
-                                                            </ul>
-                                                          </div>
+                           
 
-                                                        
                                                             
+                                                                
 
 
-                                                           
+                                                               
                         @endguest
                     </div>
                 </div>
-
-                <a href="{{ route('logout') }}"
-                    onclick="event.preventDefault();
+                @auth('web')
+    <a href="{{ route('logout') }}"
+                        onclick="event.preventDefault();
                                     document.getElementById('logout-form').submit();">
-                    <i class='bx bx-log-out nav_icon'
-                        style="color: #afa5d9; margin-left: 15px; margin-bottom: 20px; font-size: 30px;"></i>
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                        @csrf
-                    </form>
-                </a>
+                        <i class='bx bx-log-out nav_icon'
+                            style="color: #afa5d9; margin-left: 15px; margin-bottom: 20px; font-size: 30px;"></i>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                            @csrf
+                        </form>
+                    </a>
+@endauth
 
             </nav>
         </div>
@@ -253,7 +261,6 @@
                     <div class="row text-center">
                         <div class="col-12">
                             <p class="copyright"><small>
-                                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                                     Copyright &copy;
                                     <script>
                                         document.write(new Date().getFullYear());

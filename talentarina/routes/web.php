@@ -50,8 +50,10 @@ Route::group(['prefix' => 'users'], function() {
     Route::get('/profile', [App\Http\Controllers\USers\UsersController::class, 'profile'])->name('profile');
     Route::get('/applications', [App\Http\Controllers\USers\UsersController::class, 'applications'])->name('applications');
     Route::get('/savedjobs', [App\Http\Controllers\USers\UsersController::class, 'savedJobs'])->name('saved.jobs');
+
     Route::get('/edit-details', [App\Http\Controllers\Users\UsersController::class, 'editDetails'])->name('edit.details');
     Route::post('/edit-details', [App\Http\Controllers\Users\UsersController::class, 'updateDetails'])->name('update.details');
+
     Route::get('/edit-cv', [App\Http\Controllers\Users\UsersController::class, 'editCV'])->name('edit.cv');
     Route::post('/edit-cv', [App\Http\Controllers\Users\UsersController::class, 'updateCV'])->name('update.cv');
     Route::get('/edit-image', [App\Http\Controllers\Users\UsersController::class, 'editImage'])->name('edit.image');
@@ -59,21 +61,18 @@ Route::group(['prefix' => 'users'], function() {
 });
 
 
-// Route::get('admin/signup', [App\Http\Controllers\Admins\AdminsController::class, 'viewSignup'])->name('view.signup');
-// Route::post('admin/signup', [App\Http\Controllers\Admins\AdminsController::class, 'checkSignup'])->name('check.signup');
-
-
-// Route::get('admin/login', [App\Http\Controllers\Admins\AdminsController::class, 'viewLogin'])->name('view.login');
-// Route::post('admin/login', [App\Http\Controllers\Admins\AdminsController::class, 'checkLogin'])->name('check.login');
-
-// Route::get('admin', [App\Http\Controllers\Admins\AdminsController::class, 'index'])->name('admins.dashboard');
-
-
-
 
 Route::group(['prefix' => 'employer'], function (){
-    Route::get('/login', [App\Http\Controllers\Employers\EmployersController::class, 'Index'])->name('employer_form');
-    Route::get('/signup', [App\Http\Controllers\Employers\EmployersController::class, 'EmployerSignup'])->name('employer.signup');
+    Route::get('/login', [App\Http\Controllers\Employers\EmployersController::class, 'Index'])->name('employer_form')->middleware('checkforauth');
+    Route::get('/signup', [App\Http\Controllers\Employers\EmployersController::class, 'EmployerSignup'])->name('employer.signup')->middleware('checkforauth');
+
+    Route::get('/all-admins', [App\Http\Controllers\Employers\EmployersController::class, 'allAdmins'])->name('views.admins');
+    Route::get('/create-admins', [App\Http\Controllers\Employers\EmployersController::class, 'createAdmins'])->name('create.admins');
+    Route::post('/create-admins', [App\Http\Controllers\Employers\EmployersController::class, 'storeAdmins'])->name('store.admins');
+    Route::get('/edit-admins', [App\Http\Controllers\Employers\EmployersController::class, 'editAdmins'])->name('editadmins-details');
+    Route::post('/edit-admins', [App\Http\Controllers\Employers\EmployersController::class, 'updateAdmins'])->name('updateadmins-details');
+
+
     Route::post('/signup/create', [App\Http\Controllers\Employers\EmployersController::class, 'EmployerSignupCreate'])->name('employer.signup.create');
 
     Route::post('/login/owner', [App\Http\Controllers\Employers\EmployersController::class, 'Login'])->name('employer.login');

@@ -32,7 +32,17 @@
         </div>
     </section> --}}
 
-   
+   <div class="top-main-container">
+     <div class="sub-container">
+        
+        <h1>Search for your <br> dream job today</h1>
+        <div class="search">
+            <h2>Search</h2>
+            <i class="fa-solid fa-magnifying-glass"></i>
+        </div>
+        <img src="{{ asset('assets/images/top1.png')}}" alt="">
+     </div>
+   </div>
 
 
     <form method="post" class="search-jobs-form" action="{{ route('search.job') }}">
