@@ -26,14 +26,16 @@
                                     <td>{{ $admin->name }}</td>
                                     <td>{{ $admin->email }}</td>
                                     <td>
-                                        <a href="{{route('editadmins-details')}}">
+                                        <a href="{{route('editadmins-details', $admin->id)}}">
                                             <button type="button" class="btn btn-warning">Edit</button>
                                         </a>
                                     </td>
                                     <td>
-                                        <a href="">
-                                            <button type="button" class="btn btn-danger">Delete</button>
-                                        </a>
+                                        <form method="POST" action="{{ route('delete-admin', $admin->id) }}">
+                                            @csrf
+                                
+                                            <button type="submit" class="btn btn-danger">Delete</button>
+                                        </form>
                                     </td>
                                 </tr>
                             @endforeach

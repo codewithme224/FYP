@@ -101,69 +101,42 @@ class EmployersController extends Controller
     }
 
 
-    // public function editAdmins()
-    // {
-    //     $adminDetails = Employer::find(Auth::guard()->user());
 
-    //     return view('employers.editadmins-details', compact('adminDetails'));
-    // }
+    public function editAdmins($id) {
+        $admin = Employer::find($id);
+        return view('employers.edit_admins-details')->with('admin', $admin);
+    }
+    
+    public function updateAdmins(Request $request, $id) {
 
-
-    // public function updateAdmins(Request $request) {
-
-    //     Request()->validate([
-    //         'name' => 'required|max:40',
-    //         'email' => 'required|email|max:155',
-    //         'password' => 'required|min:8|max:155',
-    //     ]);
+        $this->validate($request, [
+            'name' => 'required',
+            'email' => 'required'
+        ]);
 
 
-    //     $editAdmins = Employer::find(Auth::guard()->user());
-
-    //     $editAdmins->update([
-    //         'name' => $request->name,
-    //         'email' => $request->email,
-    //         'password' => Hash::make($request->password),
-    //     ]);
-
-    //     if ($editAdmins) {
-    //         return redirect('employer/edit-admins')->with('create', 'Updated successfully!');
-    //     }
-    // }
-
-
-    public function editAdmins()
-{
-    $adminId = Auth::id();
-    $adminDetails = Employer::find($adminId);
-
-    return view('employers.edit_admins-details', compact('adminDetails'));
-}
-
-
-public function updateAdmins(Request $request) {
-
-    Request()->validate([
-        'name' => 'required|max:40',
-        'email' => 'required|email|max:155',
-    ]);
-
-    $adminId = Auth::id();
-    $editAdmins = Employer::find($adminId);
-
-    $editAdmins->update([
-        'name' => $request->name,
-        'email' => $request->email,
-    ]);
-
-    if ($editAdmins) {
-        return redirect('employer/edit-admins')->with('create', 'Updated successfully!');
-    } else {
-        return redirect('employer/edit-admins')->with('create', 'Updated successfully!');
+        $admin = Employer::find($id);
+        $admin->name = $request->name;
+        $admin->email = $request->email;
+        // $admin->password = Hash::make($request->password);
+    
+        if ($admin->save()) {
+            return redirect('employer/all-admins')->with('success', 'Updated successfully!');
+        }
     }
 
-}
 
+
+    public function deleteAdmins($id) {
+
+        $admin = Employer::find($id);
     
+        $admin->delete();
+    
+        return redirect('employer/all-admins')->with('delete', 'Admin deleted successfully!');
+    }
+
+
+  
     
 }

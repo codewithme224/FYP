@@ -69,8 +69,9 @@ Route::group(['prefix' => 'employer'], function (){
     Route::get('/all-admins', [App\Http\Controllers\Employers\EmployersController::class, 'allAdmins'])->name('views.admins');
     Route::get('/create-admins', [App\Http\Controllers\Employers\EmployersController::class, 'createAdmins'])->name('create.admins');
     Route::post('/create-admins', [App\Http\Controllers\Employers\EmployersController::class, 'storeAdmins'])->name('store.admins');
-    Route::get('/edit-admins', [App\Http\Controllers\Employers\EmployersController::class, 'editAdmins'])->name('editadmins-details');
-    Route::post('/edit-admins', [App\Http\Controllers\Employers\EmployersController::class, 'updateAdmins'])->name('updateadmins-details');
+    Route::get('/edit-admins/{id}', [App\Http\Controllers\Employers\EmployersController::class, 'editAdmins'])->name('editadmins-details');
+    Route::post('/update-admins/{id}', [App\Http\Controllers\Employers\EmployersController::class, 'updateAdmins'])->name('updateadmins-details');
+    Route::post('/delete-admins/{id}', [App\Http\Controllers\Employers\EmployersController::class, 'deleteAdmins'])->name('delete-admin');
 
 
     Route::post('/signup/create', [App\Http\Controllers\Employers\EmployersController::class, 'EmployerSignupCreate'])->name('employer.signup.create');
@@ -79,6 +80,15 @@ Route::group(['prefix' => 'employer'], function (){
     Route::get('/dashboard', [App\Http\Controllers\Employers\EmployersController::class, 'Dashboard'])->name('employer.dashboard')->middleware('employer');
 
     Route::get('/logout', [App\Http\Controllers\Employers\EmployersController::class, 'EmployerLogout'])->name('employer.logout')->middleware('employer');
+});
+
+
+
+// Admin Route
+Route::prefix('admin')->group(function() {
+    Route::get('/login', [App\Http\Controllers\Admins\AdminsController::class, 'Index'])->name('login_form');
+    Route::post('/login/owner', [App\Http\Controllers\Admins\AdminsController::class, 'Login'])->name('admin.login');
+    Route::get('/dashboard', [App\Http\Controllers\Admins\AdminsController::class, 'Dashboard'])->name('admin.dashboard')->middleware('admin');
 });
 
 
