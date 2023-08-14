@@ -16,6 +16,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css">
+
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -38,6 +40,29 @@
     <!-- Layout styles -->
     <link rel="stylesheet" href="{{ asset('../assets/asset/css/demo2/style.css') }}">
     <!-- End layout styles -->
+
+    <style>
+        /* Customize Toastr styles */
+        .toast-info {
+            background-color: #3498db;
+            color: #ffffff;
+        }
+
+        .toast-success {
+            background-color: #2ecc71;
+            color: #ffffff;
+        }
+
+        .toast-warning {
+            background-color: #f39c12;
+            color: #ffffff;
+        }
+
+        .toast-error {
+            background-color: #e74c3c;
+            color: #ffffff;
+        }
+    </style>
 
     <link rel="shortcut icon" href="{{ asset('../assets/asset/images/favicon.png') }}" />
 </head>
@@ -71,14 +96,7 @@
             <!-- partial:partials/_navbar.html -->
             @include('admin.body.header')
 
-            @if (Session::has('success'))
-                <div class="alert alert-warning alert-dismissible fade show" role="alert">
-              <strong> {{ session::get('success')}} </strong>
-              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            @endif
+
             <!-- partial -->
 
             @yield('admin')
@@ -107,6 +125,50 @@
     <!-- Custom js for this page -->
     <script src="{{ asset('../assets/asset/js/dashboard-dark.js') }}"></script>
     <!-- End custom js for this page -->
+
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
+    
+
+    <script>
+        @if(Session::has('message'))
+            var type = "{{ Session::get('alert-type', 'info') }}";
+            var message = "{{ Session::get('message') }}";
+            
+            switch (type) {
+                case 'info':
+                    toastr.info(message, 'Info', {
+                        progressBar: true,
+                        closeButton: true,   // Add close button
+                        timeOut: 5000        // Auto close after 5 seconds
+                    });
+                    break;
+                case 'success':
+                    toastr.success(message, 'Success', {
+                        progressBar: true,
+                        closeButton: true,
+                        timeOut: 5000
+                    });
+                    break;
+                case 'warning':
+                    toastr.warning(message, 'Warning', {
+                        progressBar: true,
+                        closeButton: true,
+                        timeOut: 5000
+                    });
+                    break;
+                case 'error':
+                    toastr.error(message, 'Error', {
+                        progressBar: true,
+                        closeButton: true,
+                        timeOut: 5000
+                    });
+                    break;
+            }
+        @endif
+    </script>
+    
 
 </body>
 

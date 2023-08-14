@@ -89,6 +89,22 @@ Route::prefix('admin')->group(function() {
     Route::get('/login', [App\Http\Controllers\Admins\AdminsController::class, 'Index'])->name('login_form');
     Route::post('/login/owner', [App\Http\Controllers\Admins\AdminsController::class, 'Login'])->name('admin.login');
     Route::get('/dashboard', [App\Http\Controllers\Admins\AdminsController::class, 'Dashboard'])->name('admin.dashboard')->middleware('admin');
+
+    // signup
+    Route::get('/register', [App\Http\Controllers\Admins\AdminsController::class, 'SignUp'])->name('admin.signup');
+    Route::post('/signup/create', [App\Http\Controllers\Admins\AdminsController::class, 'AdminSignupCreate'])->name('admin.signup.create');
+
+    Route::get('/logout', [App\Http\Controllers\Admins\AdminsController::class, 'AdminLogout'])->name('admin.logout')->middleware('admin');
+
+    Route::get('/profile', [App\Http\Controllers\Admins\AdminsController::class, 'AdminProfile'])->name('admin.profile')->middleware('admin');
+    Route::post('/profile/store', [App\Http\Controllers\Admins\AdminsController::class, 'AdminProfileStore'])->name('admin.profile.store')->middleware('admin');
+    
+    Route::get('/change/password', [App\Http\Controllers\Admins\AdminsController::class, 'AdminChangePassword'])->name('admin.change.password')->middleware('admin');
+    Route::post('/update/password', [App\Http\Controllers\Admins\AdminsController::class, 'AdminUpdatePassword'])->name('admin.update.password')->middleware('admin');
+
+
+
+
 });
 
 

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+{{-- <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -168,13 +168,20 @@
              <div class="text">
                 Login
              </div>
-             @if(Session::has('error'))
+             @if (Session::has('error'))
              <div class="alert alert-warning alert-dismissible fade show" role="alert">
               <strong> {{ session::get('error')}} </strong>
               <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
+              @elseif(Session::has('success'))
+              <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <strong> {{ session::get('success')}} </strong>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true" style="color: black;">&times;</span>
+                </button>
+              </div>
               @endif
              <form method="POST" action="{{ route('admin.login')}}">
                 @csrf
@@ -214,7 +221,7 @@
                 @endif
                 </div>
                 <div class="sign-up">
-                    Don't have an account? <a href="{{ route('employer.signup') }}">Sign Up</a>
+                    Don't have an account? <a href="{{ route('admin.signup') }}">Sign Up</a>
                 </div>
              </form>
           </div>
@@ -231,4 +238,151 @@
 
 
 
+ --}}
 
+
+
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="Responsive HTML Admin Dashboard Template based on Bootstrap 5">
+    <meta name="author" content="NobleUI">
+    <meta name="keywords"
+        content="nobleui, bootstrap, bootstrap 5, bootstrap5, admin, dashboard, template, responsive, css, sass, html, theme, front-end, ui kit, web">
+
+    <title>Admin Login Page</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <!-- End fonts -->
+
+    <!-- core:css -->
+    <link rel="stylesheet" href="{{ asset('/assets/asset/vendors/core/core.css') }}">
+    <!-- endinject -->
+
+    <!-- Plugin css for this page -->
+    <!-- End plugin css for this page -->
+
+    <!-- inject:css -->
+    <link rel="stylesheet" href="{{ asset('assets/asset/fonts/feather-font/css/iconfont.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/asset/vendors/flag-icon-css/css/flag-icon.min.css') }}">
+    <!-- endinject -->
+
+    <!-- Layout styles -->
+    <link rel="stylesheet" href="{{ asset('assets/asset/css/demo2/style.css') }}">
+    <!-- End layout styles -->
+
+    <link rel="shortcut icon" href="{{ asset('assets/asset/images/favicon.png') }}" />
+</head>
+
+<body>
+    <div class="main-wrapper">
+        <div class="page-wrapper full-page">
+            <div class="page-content d-flex align-items-center justify-content-center">
+
+                <div class="row w-100 mx-0 auth-page">
+                    <div class="col-md-8 col-xl-6 mx-auto">
+                        <div class="card">
+                            <div class="row">
+                                <div class="col-md-4 pe-md-0">
+                                    <div class="auth-side-wrapper" >
+                                      <img style="width: 100%; height: 100%;" src="{{asset('assets/upload/login.png')}}" alt="">
+                                    </div>
+                                </div>
+                                
+                                <div class="col-md-8 ps-md-0">
+                                  @if (Session::has('error'))
+                                    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                                        <strong> {{ session::get('error') }} </strong>
+                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                @elseif(Session::has('success'))
+                                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                        <strong> {{ session::get('success') }} </strong>
+                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                            <span aria-hidden="true" style="color: black;">&times;</span>
+                                        </button>
+                                    </div>
+                                @endif
+                                    <div class="auth-form-wrapper px-4 py-5">
+                                        <a href="{{ route('login_form') }}"
+                                            class="noble-ui-logo logo-light d-block mb-2">Talent<span>Arina</span></a>
+                                        <h5 class="text-muted fw-normal mb-4">Welcome back! Log in to your account.</h5>
+                                        <form class="forms-sample" method="POST" action="{{ route('admin.login') }}">
+                                          @csrf
+                                            <div class="mb-3">
+                                                <label for="userEmail" class="form-label"  >Email address</label>
+                                                <input
+                                                placeholder="Email Address" id="email" type="email" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus class="form-control @error('email') is-invalid @enderror mb-3">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="userPassword" class="form-label">Password</label>
+                                                <input type="password" id="userPassword"
+                                                placeholder="Password" class="form-control @error('password') is-invalid @enderror" id="password" name="password" required autocomplete="current-password">
+                                            </div>
+                                            <div class="form-check mb-3">
+                                                <input type="checkbox" class="form-check-input" id="authCheck">
+                                                <label class="form-check-label" for="authCheck">
+                                                    Remember me
+                                                </label>
+                                            </div>
+                                            <div>
+                                              <button type="submit" class="btn btn-primary me-2 mb-2 mb-md-0 text-white">Login</button>
+                                                
+                                                    <br>
+                                                <button type="button" style="margin-top: 20px;"
+                                                    class="btn btn-outline-primary btn-icon-text mb-2 mb-md-0">
+                                                    <i class="btn-icon-prepend" data-feather="lock"></i>
+                                                      @if (Route::has('password.request'))
+                                                    <a class="btn btn-link" href="{{ route('password.request') }}">
+
+                                                    </a>
+                                                    @endif
+                                                    Forgot Your Password?
+                                                    </button>
+                                            </div>
+                                            <a href="{{ route('admin.signup') }}" class="d-block mt-3 text-muted">Not a
+                                                user? Sign up</a>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- core:js -->
+    <script src="{{ asset('assets/asset/vendors/core/core.js') }}"></script>
+    <!-- endinject -->
+
+    <!-- Plugin js for this page -->
+    <!-- End plugin js for this page -->
+
+    <!-- inject:js -->
+    <script src="{{ asset('assets/asset/vendors/feather-icons/feather.min.js') }}"></script>
+    <script src="{{ asset('assets/asset/js/template.js') }}"></script>
+    <!-- endinject -->
+
+    <!-- Custom js for this page -->
+    <!-- End custom js for this page -->
+
+</body>
+
+</html>
