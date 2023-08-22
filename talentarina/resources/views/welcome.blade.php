@@ -931,6 +931,27 @@
         
 
         <div class="main-container-content">
+
+            <div class="animated-text">
+                <div class="wrapper">
+                    <svg>
+                        <text x="8%" y="70%" dy=".35em"  style="margin-top: -30px">
+                            Get Your
+                           
+                        </text>
+                        
+                    </svg>
+                </div>
+                <div class="wrapper">
+                    <svg>
+                        <text x="8%" y="70%" dy=".35em">
+                            Dream Job
+                           
+                        </text>
+                        
+                    </svg>
+                </div>
+            </div>
             
             <div class="main-container-image">
                 <img src="{{ asset('assets/images/welcome.png') }}" alt="">
@@ -939,8 +960,14 @@
             <div class="circle-container">
                 <h1>No.1</h1>
             </div>
+            
             <div class="main-container-content-text">
-                <h1>Get Your <br> Dream Job</h1>
+                {{-- <div class="wrapper">
+                        <text x="50%" y="50%" dy=".35em" text-anchor="middle">
+                            <h1>Get Your <br> Dream Job</h1>
+                            
+                        </text>
+                </div> --}}
                 <svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg"> <g clip-path="url(#clip0_231_793)"> <path fill-rule="evenodd" clip-rule="evenodd" d="M50 0H200V50V150L150 200L150 50H0L50 0ZM0 165.067V100L65.067 100L0 165.067ZM100 200H35.7777L100 135.778L100 200Z" fill="url(#paint0_linear_231_793)"/> </g> <defs> <linearGradient id="paint0_linear_231_793" x1="177" y1="-9.23648e-06" x2="39.5" y2="152.5" gradientUnits="userSpaceOnUse"> <stop stop-color="#B0B9FF"/> <stop offset="1" stop-color="#E7E9FF"/> </linearGradient> <clipPath id="clip0_231_793"> <rect width="200" height="200" fill="white"/> </clipPath> </defs> </svg>
                 
                 <div class="search">
@@ -1002,7 +1029,7 @@
 
           setTimeout(() => {
             spinnerWrapperEl.style.display = 'none';
-          }, 5000);
+          }, 2000);
       })
         
        

@@ -13,10 +13,10 @@
                     <a href="{{ route('views.admins')}}"><span class="fa fa-user"></span> Admins</a>
                 </li>
                 <li>
-                    <a href="#"><span class="fa fa-sticky-note"></span> Categories</a>
+                    <a href="{{ route('display-categories')}}"><span class="fa fa-sticky-note"></span> Categories</a>
                 </li>
                 <li>
-                    <a href="#"><span class="fa fa-book"></span> Jobs</a>
+                    <a href="{{ route('display-jobs')}}"><span class="fa fa-book"></span> Jobs</a>
                 </li>
                 <li>
                     <a href="#"><span class="fa fa-briefcase"></span> Applications</a>

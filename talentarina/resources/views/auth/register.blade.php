@@ -198,7 +198,7 @@ body {
 
             <!-- Name -->
             <div class="field">
-               <input placeholder="Name" id="name" type="text" name="name" class="input @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+               <input placeholder="Name" id="name" type="text" name="name" class="input @error('name') is-invalid @enderror"  value="{{ old('name') }}" required autocomplete="name" autofocus>
                @error('name')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>

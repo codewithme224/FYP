@@ -61,14 +61,16 @@ Route::group(['prefix' => 'users'], function() {
 });
 
 
-
+// Employer Routes
 Route::group(['prefix' => 'employer'], function (){
     Route::get('/login', [App\Http\Controllers\Employers\EmployersController::class, 'Index'])->name('employer_form')->middleware('checkforauth');
     Route::get('/signup', [App\Http\Controllers\Employers\EmployersController::class, 'EmployerSignup'])->name('employer.signup')->middleware('checkforauth');
 
     Route::get('/all-admins', [App\Http\Controllers\Employers\EmployersController::class, 'allAdmins'])->name('views.admins');
+
     Route::get('/create-admins', [App\Http\Controllers\Employers\EmployersController::class, 'createAdmins'])->name('create.admins');
     Route::post('/create-admins', [App\Http\Controllers\Employers\EmployersController::class, 'storeAdmins'])->name('store.admins');
+
     Route::get('/edit-admins/{id}', [App\Http\Controllers\Employers\EmployersController::class, 'editAdmins'])->name('editadmins-details');
     Route::post('/update-admins/{id}', [App\Http\Controllers\Employers\EmployersController::class, 'updateAdmins'])->name('updateadmins-details');
     Route::post('/delete-admins/{id}', [App\Http\Controllers\Employers\EmployersController::class, 'deleteAdmins'])->name('delete-admin');
@@ -80,6 +82,19 @@ Route::group(['prefix' => 'employer'], function (){
     Route::get('/dashboard', [App\Http\Controllers\Employers\EmployersController::class, 'Dashboard'])->name('employer.dashboard')->middleware('employer');
 
     Route::get('/logout', [App\Http\Controllers\Employers\EmployersController::class, 'EmployerLogout'])->name('employer.logout')->middleware('employer');
+
+    Route::get('/display-categories', [App\Http\Controllers\Employers\EmployersController::class, 'DisplayCategories'])->name('display-categories')->middleware('employer');
+
+    Route::get('/create-categories', [App\Http\Controllers\Employers\EmployersController::class, 'createCategories'])->name('create.categories');
+    Route::post('/create-categories', [App\Http\Controllers\Employers\EmployersController::class, 'storeCategories'])->name('store.categories');
+
+    // Update categories
+    Route::get('/edit-categories/{id}', [App\Http\Controllers\Employers\EmployersController::class, 'editCategories'])->name('edit.categories');
+    Route::post('/edit-categories/{id}', [App\Http\Controllers\Employers\EmployersController::class, 'updateCategories'])->name('update.categories');
+    Route::post('/delete-category/{id}', [App\Http\Controllers\Employers\EmployersController::class, 'deleteCategory'])->name('delete-category');
+
+    // Jobs Routes
+    Route::get('/display-jobs', [App\Http\Controllers\Employers\EmployersController::class, 'DisplayJobs'])->name('display-jobs');
 });
 
 
