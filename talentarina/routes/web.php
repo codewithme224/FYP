@@ -118,6 +118,38 @@ Route::prefix('admin')->group(function() {
     Route::post('/update/password', [App\Http\Controllers\Admins\AdminsController::class, 'AdminUpdatePassword'])->name('admin.update.password')->middleware('admin');
 
 
+    // show all admins
+    Route::get('/all-users', [App\Http\Controllers\Admins\AdminsController::class, 'allUsers'])->name('all.users')->middleware('admin');
+
+    // create new users
+    Route::get('/create-users', [App\Http\Controllers\Admins\AdminsController::class, 'createUsers'])->name('create-users')->middleware('admin');
+
+    Route::post('/create-users', [App\Http\Controllers\Admins\AdminsController::class, 'storeUsers'])->name('store-users')->middleware('admin');
+
+    // Update admins
+    Route::get('/edit-admins/{id}', [App\Http\Controllers\Admins\AdminsController::class, 'editUsers'])->name('edit-users')->middleware('admin');
+    Route::post('/update-users/{id}', [App\Http\Controllers\Admins\AdminsController::class, 'updateUsers'])->name('update-users')->middleware('admin');
+    Route::post('/delete-users/{id}', [App\Http\Controllers\Admins\AdminsController::class, 'deleteUsers'])->name('delete.user')->middleware('admin');
+
+
+    //! Employer Route
+    // show all employers
+    Route::get('/all-employers', [App\Http\Controllers\Admins\AdminsController::class, 'allEmployers'])->name('all.employers')->middleware('admin');
+
+    // create new employers
+    Route::get('/create-employers', [App\Http\Controllers\Admins\AdminsController::class, 'createEmployers'])->name('create-employers')->middleware('admin');
+
+    Route::post('/create-employers', [App\Http\Controllers\Admins\AdminsController::class, 'storeEmployers'])->name('store-employers')->middleware('admin');
+
+    // Update employers
+    Route::get('/edit-employers/{id}', [App\Http\Controllers\Admins\AdminsController::class, 'editEmployers'])->name('edit-employers')->middleware('admin');
+
+    Route::post('/update-employers/{id}', [App\Http\Controllers\Admins\AdminsController::class, 'updateEmployers'])->name('update-employers')->middleware('admin');
+
+    Route::post('/delete-employers/{id}', [App\Http\Controllers\Admins\AdminsController::class, 'deleteEmployers'])->name('delete-employers')->middleware('admin');
+
+
+
 
 
 });

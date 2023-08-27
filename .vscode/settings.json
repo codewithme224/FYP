@@ -6,9 +6,11 @@
         "editcv",
         "editdetails",
         "editimage",
+        "endsection",
         "myimage",
         "savedjobs",
         "tiktok",
         "updateadmins"
-    ]
+    ],
+    "editor.acceptSuggestionOnEnter": "on"
 }

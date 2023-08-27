@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Middleware\Employer;
 use App\Models\Admin;
 use App\Models\Job\Job;
+// use App\Models\Employer;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
@@ -197,6 +198,225 @@ class AdminsController extends Controller
 
         
     }
+
+
+    // show all admins
+    public function allUsers()
+    {
+        $users = User::all();
+        return view('admin.all-users', compact('users'));
+    }
+
+    // create admins
+    public function createUsers()
+    {
+        return view('admin.create-users');
+    }
+
+
+    // Store admin
+    public function storeUsers(Request $request)
+    {
+        
+
+        $request->validate([
+            'name' => 'required|min:3|max:50',
+            'email' => 'required|email|unique:admins',
+            'password' => 'required|min:8'
+        ]);
+
+        // check if password is less 8 characters, if it is give an error message
+        if (strlen($request->password) < 8) {
+            return redirect()->back()->with('error', 'Password must be at least 8 characters');
+        }
+
+        // check if email already exists
+        $checkEmail = User::where('email', $request->email)->first();
+        if ($checkEmail) {
+            return redirect()->back()->with('error', 'Email already exists');
+        }
+
+
+
+
+        $users = new User();
+        $users->name = $request->name;
+        $users->email = $request->email;
+        $users->password = Hash::make($request->password);
+        $users->save();
+
+
+        if ($users) {
+            return redirect('admin/all-users')->with('create', 'Admin created successfully!');
+        }
+
+        $notification = array(
+            'message' => 'User created Successfully',
+            'alert-type' => 'success'
+        );
+
+        return redirect()->back()->with($notification);
+
+    }
+
+    // Update Users
+    public function editUsers($id)
+    {
+        $user = User::find($id);
+        return view('admin.edit-users', compact('user'));
+    }
+
+    // update
+    public function updateUsers(Request $request, $id)
+    {
+        $request->validate([
+            'name' => 'required|min:3|max:50',
+            'email' => 'required|email|unique:admins',
+            
+            
+        ]);
+
+       
+
+        $users = User::find($id);
+        $users->name = $request->name;
+        $users->email = $request->email;
+        $users->save();
+
+        if ($users->save()) {
+            return redirect('admin/all-users')->with('success', 'Updated successfully!');
+        }
+
+        // Check if a new password was provided
+        $newPassword = $request->input('new_password');
+        if (!empty($newPassword)) {
+            $users->password = Hash::make($newPassword);
+        }
+
+
+    }
+
+    // delete
+    public function deleteUsers($id)
+    {
+        $users = User::find($id);
+        $users->delete();
+
+        if ($users->delete()) {
+            return redirect('admin/all-users')->with('success', 'Deleted successfully!');
+        }
+    }
+
+
+
+    //! Employers Section
+
+    // Show all employers
+    public function allEmployers()
+    {
+        $employers = \App\Models\Employer::all();
+        return view('admin.all-employers', compact('employers'));
+    }
+
+    // create employers
+    public function createEmployers()
+    {
+        return view('admin.create-employers');
+    }
+
+    // store employer
+    public function storeEmployers(Request $request)
+    {
+        $request->validate([
+            'name' => 'required|min:3|max:50',
+            'email' => 'required|email|unique:employers',
+            'password' => 'required|min:8'
+        ]);
+
+        // check if password is less 8 characters, if it is give an error message
+        if (strlen($request->password) < 8) {
+            return redirect()->back()->with('error', 'Password must be at least 8 characters');
+        }
+
+        // check if email already exists
+        $checkEmail = \App\Models\Employer::where('email', $request->email)->first();
+        if ($checkEmail) {
+            return redirect()->back()->with('error', 'Email already exists');
+        }
+
+
+        $employers = \App\Models\Employer::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => Hash::make('password'),
+        ]);
+
+
+        if ($employers) {
+            return redirect('admin/all-employers')->with('create', 'Admin created successfully!');
+        }
+
+        $notification = array(
+            'message' => 'Employer created Successfully',
+            'alert-type' => 'success'
+        );
+
+        return redirect()->back()->with($notification);
+
+    }
+
+
+    // edit employers
+    public function editEmployers($id)
+    {
+        $employer = \App\Models\Employer::find($id);
+        return view('admin.edit-employers', compact('employer'));
+    }
+
+    // update employers
+    public function updateEmployers(Request $request, $id)
+    {
+        $request->validate([
+            'name' => 'required|min:3|max:50',
+            'email' => 'required|email',
+            
+            
+        ]);
+
+       
+
+        $employers = \App\Models\Employer::find($id);
+        $employers->name = $request->name;
+        $employers->email = $request->email;
+        $employers->save();
+
+        if ($employers->save()) {
+            return redirect('admin/all-employers')->with('success', 'Updated successfully!');
+        }
+
+        // Check if a new password was provided
+        $newPassword = $request->input('new_password');
+        if (!empty($newPassword)) {
+            $employers->password = Hash::make($newPassword);
+        }
+    }
+
+
+    // delete employers
+    public function deleteEmployers($id)
+    {
+        $employers = \App\Models\Employer::find($id);
+        $employers->delete();
+
+        if ($employers->delete()) {
+            return redirect('admin/all-employers')->with('success', 'Deleted successfully!');
+        }
+    }
+
+
+
+
+
 
 
 
