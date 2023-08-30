@@ -856,7 +856,8 @@ body {
     position: relative;
     flex-direction: column;
     flex: 1;
-    height: 700px;
+    height: 800px;
+    margin-top: 10px;
     width: 93%;
     min-width: 250px;
     margin: 50px;

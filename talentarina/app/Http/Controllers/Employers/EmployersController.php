@@ -226,7 +226,86 @@ class EmployersController extends Controller
     // Jobs
     public function DisplayJobs()
     {
-        $jobs = Job::all();
+        // $jobs = Job::all();
+
+        $employer_id = Auth::guard('employer')->id(); // Get the ID of the currently logged in employer
+
+        // Get the jobs created by the current logged in employer
+        $jobs = Job::where('employer_id', $employer_id)->get();
+        
         return view('employers.display-jobs', compact('jobs'));
+    }
+
+
+    // Create jobs
+    public function createJobs() {
+        $categories = Category::all();
+        return view('employers.create-jobs', compact('categories'));
+    }
+
+
+    // Store Jobs
+    public function storeJobs(Request $request)
+    {
+        $request->validate([
+            'job_title' => 'required|min:3|max:50',
+            'job_region' => 'required',
+            'company' => 'required',
+            'job_type' => 'required',
+            'vacancy' => 'required',
+            'experience' => 'required',
+            'salary' => 'required',
+            'gender' => 'required',
+            'application_deadline' => 'required|min:3|max:50',
+            'job_description' => 'required|min:3|max:5000',
+            'responsibilities' => 'required|min:3|max:5000',
+            'education_experience' => 'required|min:3|max:500',
+            'other_benefits' => 'required|min:3|max:500',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'category' => 'required',
+    
+        ]);
+
+        $destinationPath = 'assets/images/';
+        $my_image = $request->image->getClientOriginalName();
+        $request->image->move(public_path($destinationPath), $my_image);
+
+        $createJobs = Job::create([
+            'employer_id' => Auth::guard('employer')->id(),
+            'job_title' => $request->job_title,
+            'job_region' => $request->job_region,
+            'company' => $request->company,
+            'job_type' => $request->job_type,
+            'vacancy' => $request->vacancy,
+            'experience' => $request->experience,
+            'salary' => $request->salary,
+            'gender' => $request->gender,
+            'application_deadline' => $request->application_deadline,
+            'job_description' => $request->job_description,
+            'responsibilities' => $request->responsibilities,
+            'education_experience' => $request->education_experience,
+            'other_benefits' => $request->other_benefits,
+            'image' => $my_image,
+            'category' => $request->category,
+        ]);
+
+        
+
+       
+
+        
+
+
+
+        if ($createJobs) {
+            return redirect('employer/display-jobs')->with('create', 'Job created successfully!');
+        }
+
+        $notification = array(
+            'message' => 'Job created Successfully',
+            'alert-type' => 'success'
+        );
+
+        return redirect()->back()->with($notification);
     }
 }

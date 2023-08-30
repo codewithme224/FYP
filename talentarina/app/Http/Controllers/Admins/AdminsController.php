@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admins;
 use App\Http\Controllers\Controller;
 use App\Http\Middleware\Employer;
 use App\Models\Admin;
+use App\Models\Category\Category;
 use App\Models\Job\Job;
 // use App\Models\Employer;
 use App\Models\User;
@@ -300,10 +301,12 @@ class AdminsController extends Controller
     public function deleteUsers($id)
     {
         $users = User::find($id);
-        $users->delete();
-
-        if ($users->delete()) {
+        
+        if ($users) {
+            $users->delete();
             return redirect('admin/all-users')->with('success', 'Deleted successfully!');
+        } else {
+            return redirect('admin/all-users')->with('error', 'User not found.');
         }
     }
 
@@ -406,13 +409,178 @@ class AdminsController extends Controller
     public function deleteEmployers($id)
     {
         $employers = \App\Models\Employer::find($id);
-        $employers->delete();
-
-        if ($employers->delete()) {
+        
+        if ($employers) {
+            $employers->delete();
             return redirect('admin/all-employers')->with('success', 'Deleted successfully!');
+        } else {
+            return redirect('admin/all-employers')->with('error', 'Employer not found.');
         }
     }
 
+
+
+    //! Categories Section
+
+    // show all categories
+    public function allCategories()
+    {
+        $categories = Category::all();
+        return view('admin.all-categories', compact('categories'));
+    }
+
+    // create categories
+    public function createCategories()
+    {
+        return view('admin.create-categories');
+    }
+
+    // store categories
+    public function storeCategories(Request $request)
+    {
+        $request->validate([
+            'name' => 'required|min:3|max:50',
+    
+        ]);
+
+        $categories = new Category();
+        $categories->name = $request->name;
+        $categories->save();
+
+        if ($categories) {
+            return redirect('admin/all-categories')->with('create', 'Category created successfully!');
+        }
+
+        $notification = array(
+            'message' => 'Category created Successfully',
+            'alert-type' => 'success'
+        );
+
+        return redirect()->back()->with($notification);
+    }
+
+    // edit categories
+    public function editCategories($id)
+    {
+        $category = Category::find($id);
+        return view('admin.edit-categories', compact('category'));
+    }
+
+    // update categories
+    public function updateCategories(Request $request, $id)
+    {
+        $request->validate([
+            'name' => 'required|min:3|max:50',
+    
+        ]);
+
+        $categories = Category::find($id);
+        $categories->name = $request->name;
+        $categories->save();
+
+        if ($categories->save()) {
+            return redirect('admin/all-categories')->with('success', 'Updated successfully!');
+        }
+    }
+
+    // delete categories
+    public function deleteCategories($id)
+    {
+        $categories = Category::find($id);
+
+
+        if ($categories) {
+            $categories->delete();
+            return redirect('admin/all-categories')->with('success', 'Deleted successfully!');
+        } else {
+            return redirect('admin/all-categories')->with('error', 'Category not found.');
+        }
+    }
+
+
+
+    //! Jobs Section
+
+    // show all jobs
+    public function allJobs()
+    {
+        $jobs = Job::all();
+        return view('admin.all-jobs', compact('jobs'));
+    }
+
+    // create jobs
+    public function createJobs()
+    {
+        $categories = Category::all();
+        return view('admin.create-jobs', compact('categories'));
+    }
+
+    // store jobs
+    public function storeJobs(Request $request)
+    {
+        $request->validate([
+            'job_title' => 'required|min:3|max:50',
+            'job_region' => 'required',
+            'company' => 'required',
+            'job_type' => 'required',
+            'vacancy' => 'required',
+            'experience' => 'required',
+            'salary' => 'required',
+            'gender' => 'required',
+            'application_deadline' => 'required|min:3|max:50',
+            'job_description' => 'required|min:3|max:5000',
+            'responsibilities' => 'required|min:3|max:5000',
+            'education_experience' => 'required|min:3|max:500',
+            'other_benefits' => 'required|min:3|max:500',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'category' => 'required',
+    
+        ]);
+
+        $destinationPath = 'assets/images/';
+        $my_image = $request->image->getClientOriginalName();
+        $request->image->move(public_path($destinationPath), $my_image);
+
+        $createJobs = Job::create([
+            'job_title' => $request->job_title,
+            'job_region' => $request->job_region,
+            'company' => $request->company,
+            'job_type' => $request->job_type,
+            'vacancy' => $request->vacancy,
+            'experience' => $request->experience,
+            'salary' => $request->salary,
+            'gender' => $request->gender,
+            'application_deadline' => $request->application_deadline,
+            'job_description' => $request->job_description,
+            'responsibilities' => $request->responsibilities,
+            'education_experience' => $request->education_experience,
+            'other_benefits' => $request->other_benefits,
+            'image' => $my_image,
+            'category' => $request->category,
+        ]);
+
+        
+
+       
+
+        
+
+
+
+        if ($createJobs) {
+            return redirect('admin/all-jobs')->with('create', 'Job created successfully!');
+        }
+
+        $notification = array(
+            'message' => 'Job created Successfully',
+            'alert-type' => 'success'
+        );
+
+        return redirect()->back()->with($notification);
+    }
+
+
+    
 
 
 

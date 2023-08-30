@@ -95,6 +95,17 @@ Route::group(['prefix' => 'employer'], function (){
 
     // Jobs Routes
     Route::get('/display-jobs', [App\Http\Controllers\Employers\EmployersController::class, 'DisplayJobs'])->name('display-jobs');
+
+    // Create jobs route
+    Route::get('/create-jobs', [App\Http\Controllers\Employers\EmployersController::class, 'createJobs'])->name('create.jobs');
+    Route::post('/create-jobs', [App\Http\Controllers\Employers\EmployersController::class, 'storeJobs'])->name('store.jobs');
+
+    // Update jobs route
+    Route::get('/edit-jobs/{id}', [App\Http\Controllers\Employers\EmployersController::class, 'editJobs'])->name('edit.jobs');
+    Route::post('/update-jobs/{id}', [App\Http\Controllers\Employers\EmployersController::class, 'updateJobs'])->name('update.jobs');
+
+    // Delete jobs route
+    Route::post('/delete-jobs/{id}', [App\Http\Controllers\Employers\EmployersController::class, 'deleteJobs'])->name('delete.jobs');
 });
 
 
@@ -147,6 +158,42 @@ Route::prefix('admin')->group(function() {
     Route::post('/update-employers/{id}', [App\Http\Controllers\Admins\AdminsController::class, 'updateEmployers'])->name('update-employers')->middleware('admin');
 
     Route::post('/delete-employers/{id}', [App\Http\Controllers\Admins\AdminsController::class, 'deleteEmployers'])->name('delete-employers')->middleware('admin');
+
+
+    //! Categories Route
+    // show all categories
+    Route::get('/all-categories', [App\Http\Controllers\Admins\AdminsController::class, 'allCategories'])->name('all.categories')->middleware('admin');
+
+    // create new categories
+    Route::get('/create-categories', [App\Http\Controllers\Admins\AdminsController::class, 'createCategories'])->name('create-categories')->middleware('admin');
+
+    Route::post('/create-categories', [App\Http\Controllers\Admins\AdminsController::class, 'storeCategories'])->name('store-categories')->middleware('admin');
+
+    // Update categories
+    Route::get('/edit-categories/{id}', [App\Http\Controllers\Admins\AdminsController::class, 'editCategories'])->name('edit-categories')->middleware('admin');
+
+    Route::post('/update-categories/{id}', [App\Http\Controllers\Admins\AdminsController::class, 'updateCategories'])->name('update-categories')->middleware('admin');
+
+    Route::post('/delete-categories/{id}', [App\Http\Controllers\Admins\AdminsController::class, 'deleteCategories'])->name('delete-categories')->middleware('admin');
+
+
+
+    //! Jobs Route
+    // show all jobs
+    Route::get('/all-jobs', [App\Http\Controllers\Admins\AdminsController::class, 'allJobs'])->name('all.jobs')->middleware('admin');
+
+    // create new jobs
+    Route::get('/create-jobs', [App\Http\Controllers\Admins\AdminsController::class, 'createJobs'])->name('create-jobs')->middleware('admin');
+
+    Route::post('/create-jobs', [App\Http\Controllers\Admins\AdminsController::class, 'storeJobs'])->name('store-jobs')->middleware('admin');
+
+    // Update jobs
+    Route::get('/edit-jobs/{id}', [App\Http\Controllers\Admins\AdminsController::class, 'editJobs'])->name('edit-jobs')->middleware('admin');
+
+    Route::post('/update-jobs/{id}', [App\Http\Controllers\Admins\AdminsController::class, 'updateJobs'])->name('update-jobs')->middleware('admin');
+
+    Route::post('/delete-jobs/{id}', [App\Http\Controllers\Admins\AdminsController::class, 'deleteJobs'])->name('delete-jobs')->middleware('admin');
+    
 
 
 
