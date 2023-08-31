@@ -29,9 +29,6 @@
                         <a href="{{ route('employer.dashboard') }}"><span class="fa fa-home"></span> Home</a>
                     </li>
                     <li>
-                        <a href="{{ route('views.admins') }}"><span class="fa fa-user"></span> Admins</a>
-                    </li>
-                    <li>
                         <a href="{{ route('display-categories')}}"><span class="fa fa-sticky-note"></span> Categories</a>
                     </li>
                     <li>

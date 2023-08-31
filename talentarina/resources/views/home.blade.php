@@ -32,17 +32,17 @@
         </div>
     </section> --}}
 
-   <div class="top-main-container">
-     <div class="sub-container">
-        
-        <h1>Search for your <br> dream job today</h1>
-        <div class="search">
-            <h2>Search</h2>
-            <i class="fa-solid fa-magnifying-glass"></i>
+    <div class="top-main-container">
+        <div class="sub-container">
+
+            <h1>Search for your <br> dream job today</h1>
+            <div class="search">
+                <h2>Search</h2>
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </div>
+            <img src="{{ asset('assets/images/top1.png') }}" alt="">
         </div>
-        <img src="{{ asset('assets/images/top1.png')}}" alt="">
-     </div>
-   </div>
+    </div>
 
 
     <form method="post" class="search-jobs-form" action="{{ route('search.job') }}">
@@ -74,11 +74,14 @@
                 </select>
             </div>
             <div class="location-container">
-                <select name="job_type" class="select2" data-style="btn-white btn-lg" data-width="100%" data-live-search="true"
-                    title="Select Job Type">
+                <select name="job_type" class="select2" data-style="btn-white btn-lg" data-width="100%"
+                    data-live-search="true" title="Select Job Type">
                     <option>Select Job Type</option>
-                    <option>Part Time</option>
-                    <option>Full Time</option>
+                    <option value="Full Time">Full Time</option>
+                    <option value="Part Time">Part Time</option>
+                    <option value="Contract">Contract</option>
+                    <option value="Internship">Internship</option>
+                    <option value="Temporary">Temporary</option>
                 </select>
             </div>
             <div class="btn-container">
@@ -481,26 +484,25 @@
     <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
 
     <script>
-        $(document).ready(function(){
-    $('.counter-value').each(function(){
-    $(this).prop('Counter',0).animate({
-    Counter: $(this).text()
-    },{
-    duration: 3500,
-    easing: 'swing',
-    step: function (now){
-    $(this).text(Math.ceil(now));
-    }
-    });
-    });
-    });
-
+        $(document).ready(function() {
+            $('.counter-value').each(function() {
+                $(this).prop('Counter', 0).animate({
+                    Counter: $(this).text()
+                }, {
+                    duration: 3500,
+                    easing: 'swing',
+                    step: function(now) {
+                        $(this).text(Math.ceil(now));
+                    }
+                });
+            });
+        });
     </script>
 
 
     <!-- <div class="carousel-container">
-          <img src="{{ asset('assets/images/slider1.jpg') }}" alt="Image 1">
-          <img src="{{ asset('assets/images/person_2.jpg') }}" alt="Image 2">
-          <img src="{{ asset('assets/images/person_3.jpg') }}" alt="Image 3">
-        </div> -->
+              <img src="{{ asset('assets/images/slider1.jpg') }}" alt="Image 1">
+              <img src="{{ asset('assets/images/person_2.jpg') }}" alt="Image 2">
+              <img src="{{ asset('assets/images/person_3.jpg') }}" alt="Image 3">
+            </div> -->
 @endsection

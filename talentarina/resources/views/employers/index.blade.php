@@ -9,9 +9,7 @@
                 <li class="active">
                     <a href="{{ route('employer.dashboard')}}"><span class="fa fa-home"></span> Home</a>
                 </li>
-                <li>
-                    <a href="{{ route('views.admins')}}"><span class="fa fa-user"></span> Admins</a>
-                </li>
+               
                 <li>
                     <a href="{{ route('display-categories')}}"><span class="fa fa-sticky-note"></span> Categories</a>
                 </li>
@@ -103,7 +101,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-3">
+                    {{-- <div class="col-md-3">
                         <div class="card">
                             <div class="card-body">
                                 <h5 class="card-title">Admins</h5>
@@ -112,7 +110,7 @@
 
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
                     <div class="col-md-3">
                         <div class="card">
                             <div class="card-body">

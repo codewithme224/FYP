@@ -13,15 +13,13 @@
                         </div>
                     @endif
                     <h5 class="card-title mb-4 d-inline">Categories</h5>
-                    <a href="{{ route('create.categories') }}" class="btn btn-primary mb-4 text-center float-right">Create
-                        Categories</a>
                     <table class="table">
                         <thead>
                             <tr>
                                 <th scope="col">#</th>
                                 <th scope="col">name</th>
-                                <th scope="col">update</th>
-                                <th scope="col">delete</th>
+                                <th scope="col">Created</th>
+                                <th scope="col">Updated</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -29,14 +27,9 @@
                                 <tr>
                                     <th scope="row">{{ $category->id }}</th>
                                     <td>{{ $category->name }}</td>
-                                    <td><a href="{{ route('edit.categories', $category->id) }}" class="btn btn-warning text-white text-center ">Update </a></td>
-                                    <td>
-                                        <form method="POST" action="{{ route('delete-category', $category->id) }}">
-                                            @csrf
-                                
-                                            <button type="submit" class="btn btn-danger">Delete</button>
-                                        </form>
-                                    </td>
+                                    <td>{{ $category->created_at->format('d-m-Y') }}</td>
+                                    <td>{{ $category->updated_at->format('d-m-Y') }}</td>
+
                                 </tr>
                             @endforeach
                         </tbody>

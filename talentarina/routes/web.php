@@ -28,7 +28,7 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/about', [App\Http\Controllers\HomeController::class, 'about'])->name('about');
 Route::get('/contact', [App\Http\Controllers\HomeController::class, 'contact'])->name('contact');
-Route::get('/post_job', [App\Http\Controllers\HomeController::class, 'post_job'])->name('post_job');
+Route::get('/all-jobs', [App\Http\Controllers\HomeController::class, 'allJobs'])->name('all-jobs');
 
 // Jobs Routes
 Route::group(['prefix' => 'jobs'], function() {
@@ -36,6 +36,9 @@ Route::group(['prefix' => 'jobs'], function() {
     Route::post('/save', [App\Http\Controllers\Jobs\JobsController::class, 'saveJob'])->name('save.job');
     Route::post('/apply', [App\Http\Controllers\Jobs\JobsController::class, 'jobApply'])->name('apply.job');
     Route::any('/search', [App\Http\Controllers\Jobs\JobsController::class, 'search'])->name('search.job');
+
+    // display all jobs
+    
 });
 
 // Categories Routes

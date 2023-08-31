@@ -579,6 +579,84 @@ class AdminsController extends Controller
         return redirect()->back()->with($notification);
     }
 
+    // edit jobs
+    public function editJobs($id)
+    {
+        $job = Job::find($id);
+        $categories = Category::all();
+        return view('admin.edit-jobs', compact('job', 'categories'));
+    }
+
+    // update jobs
+    public function updateJobs(Request $request, $id) {
+
+        $request->validate([
+            'job_title' => 'required|min:3|max:50',
+            'job_region' => 'required',
+            'company' => 'required',
+            'job_type' => 'required',
+            'vacancy' => 'required',
+            'experience' => 'required',
+            'salary' => 'required',
+            'gender' => 'required',
+            'application_deadline' => 'required|min:3|max:50',
+            'job_description' => 'required|min:3|max:5000',
+            'responsibilities' => 'required|min:3|max:5000',
+            'education_experience' => 'required|min:3|max:500',
+            'other_benefits' => 'required|min:3|max:500',
+            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048', 
+            'category' => 'required',
+        ]);
+    
+        $jobs = Job::find($id);
+        $jobs->job_title = $request->job_title;
+        $jobs->job_region = $request->job_region;
+        $jobs->company = $request->company;
+        $jobs->job_type = $request->job_type;
+        $jobs->vacancy = $request->vacancy;
+        $jobs->experience = $request->experience;
+        $jobs->salary = $request->salary;
+        $jobs->gender = $request->gender;
+        $jobs->application_deadline = $request->application_deadline;
+        $jobs->job_description = $request->job_description;
+        $jobs->responsibilities = $request->responsibilities;
+        $jobs->education_experience = $request->education_experience;
+        $jobs->other_benefits = $request->other_benefits;
+    
+        // image upload validation
+        if ($request->file('image')) {
+            $file = $request->file('image');
+            @unlink(public_path('assets/images/' . $jobs->image));
+            $filename = date('YmdHi').$file->getClientOriginalName();
+            $file->move(public_path('assets/images/'), $filename);
+            $jobs->image = $filename; // assign the filename to the image attribute
+        }
+    
+        $jobs->category = $request->category;
+        $jobs->save();
+    
+        if ($jobs) {
+            return redirect('admin/all-jobs')->with('success', 'Updated successfully!');
+        }
+    }
+
+
+    // delete jobs
+    public function deleteJobs($id)
+    {
+        $jobs = Job::find($id);
+
+        if ($jobs) {
+            $jobs->delete();
+            return redirect('admin/all-jobs')->with('success', 'Deleted successfully!');
+        } else {
+            return redirect('admin/all-$jobs')->with('error', 'Job not found.');
+        }
+
+
+
+    }
+
 
     
 

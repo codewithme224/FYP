@@ -166,4 +166,7 @@ class JobsController extends Controller
 
         return view('jobs.search', compact('searches', 'searchesCount'));
     }
+
+
+    
 }

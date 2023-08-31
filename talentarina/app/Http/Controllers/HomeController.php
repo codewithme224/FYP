@@ -49,9 +49,11 @@ class HomeController extends Controller
 
         return view('pages.contact');
     }
-    public function post_job()
+    public function allJobs()
     {
 
-        return view('pages.post_job');
+        $jobs = Job::all(); // Get all jobs from the database
+
+        return view('pages.all-job', compact('jobs'));
     }
 }

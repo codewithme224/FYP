@@ -58,13 +58,13 @@
                                             </td>
                                             <td>{{ $job->category }}</td>
                                             <td>
-                                                <a href="">
+                                                <a href="{{route('edit-jobs', $job->id)}}">
                                                     <button type="button" class="btn btn-warning">Edit</button>
                                                 </a>
                                             </td>
                                             <td>
                                                 
-                                                <form method="POST" action="">
+                                                <form method="POST" action="{{route('delete-jobs', $job->id)}}">
                                                     @csrf
                                         
                                                     <button type="submit" class="btn btn-danger">Delete</button>

@@ -111,9 +111,9 @@
                         <a href="{{ route('contact') }}" class="nav_link"> <i
                                 class='bx bx-message-square-detail nav_icon'></i> <span class="nav_name">Contact</span>
                         </a>
-                        {{-- <a href="{{ route('post_job') }}" class="nav_link"> <i class='bx bx-plus nav_icon'></i> <span
-                                class="nav_name">Post a Job</span> </a>
-                        </a> --}}
+                        <a href="{{ route('all-jobs') }}" class="nav_link"> <i class='bx bx-plus nav_icon'></i> <span
+                                class="nav_name">All Jobs</span> </a>
+                        </a>
 
                         @guest
                             @if (Route::has('login'))

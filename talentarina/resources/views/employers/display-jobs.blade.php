@@ -8,7 +8,7 @@
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title mb-4 d-inline">Jobs</h5>
-                        <a href="{{ route('create.jobs') }}" class="btn btn-primary mb-4 text-center float-right">Create
+                        <a href="{{ route('create.jobs') }}" class="btn btn-primary mb-4 text-center float-right">Post
                             Jobs</a>
 
                         <table class="table">
@@ -38,13 +38,13 @@
 
 
                                         <td>
-                                            <a href="">
+                                            <a href="{{route('edit.jobs', $job->id)}}">
                                                 <button type="button" class="btn btn-warning">Edit</button>
                                             </a>
                                         </td>
                                         <td>
 
-                                            <form method="POST" action="">
+                                            <form method="POST" action="{{ route('delete.jobs', $job->id) }}">
                                                 @csrf
 
                                                 <button type="submit" class="btn btn-danger">Delete</button>
