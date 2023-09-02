@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Employers;
 
 use App\Http\Controllers\Controller;
+use App\Mail\ApplicationResponse;
 use App\Models\Category\Category;
 use App\Models\Job\Application;
 use App\Models\Job\Job;
@@ -25,9 +26,16 @@ class EmployersController extends Controller
     }
     public function Dashboard()
     {
-        $jobs = Job::select()->count();
+        // $jobs = Job::select()->count();
 
-        $application = Application::select()->count();
+        // $application = Application::select()->count();
+
+
+        $employer_id = Auth::guard('employer')->id(); 
+
+        $jobs = Job::where('employer_id', $employer_id)->count();
+
+        $application = Application::whereIn('job_id', Job::where('employer_id', $employer_id)->pluck('id'))->count();
 
         $categories = Category::select()->count();
 
@@ -257,14 +265,30 @@ class EmployersController extends Controller
             'salary' => 'required',
             'gender' => 'required',
             'application_deadline' => 'required|min:3|max:50',
-            'job_description' => 'required|min:3|max:5000',
-            'responsibilities' => 'required|min:3|max:5000',
-            'education_experience' => 'required|min:3|max:500',
-            'other_benefits' => 'required|min:3|max:500',
+            'job_description' => 'required',
+            'responsibilities' => 'required',
+            'education_experience' => 'required',
+            'other_benefits' => 'required',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'category' => 'required',
+
+            
     
         ]);
+
+        // check if job_description, responsibilities and other_benefits is higher than 400 words. if it is raise an error
+
+        if (str_word_count($request->job_description) > 400) {
+            return redirect()->back()->with('error', 'Job description must not be more than 400 words');
+        }
+
+        if (str_word_count($request->responsibilities) > 400) {
+            return redirect()->back()->with('error', 'Responsibilities must not be more than 400 words');
+        }
+
+        if (str_word_count($request->other_benefits) > 400) {
+            return redirect()->back()->with('error', 'Other benefits must not be more than 400 words');
+        }
 
         $destinationPath = 'assets/images/';
         $my_image = $request->image->getClientOriginalName();
@@ -387,5 +411,22 @@ class EmployersController extends Controller
 
 
 
+    }
+
+
+    //! Application Section
+
+    // Display Applications
+    public function DisplayApplications()
+    {
+        $employer_id = Auth::guard('employer')->id(); // Get the ID of the currently logged in employer
+
+        // Get the jobs created by the current logged in employer
+        $jobs = Job::where('employer_id', $employer_id)->pluck('id');
+
+        // Get the applications for the jobs created by the current logged in employer
+        $applications = Application::whereIn('job_id', $jobs)->get();
+
+        return view('employers.display-applications', compact('applications'));
     }
 }

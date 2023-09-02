@@ -181,6 +181,8 @@
                     <div class="text-center mt-3">
                         <h5 class="mt-2 mb-0">{{ $profile->name }}</h5>
                         <span>{{ $profile->job_title }}</span>
+                        <br>
+                        <span>{{ $profile->email }}</span>
 
                         <button class="btn-ss "
                             style="margin: 20 auto; height: 50px; display: block; padding-bottom: 15px;"><a

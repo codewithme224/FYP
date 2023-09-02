@@ -109,6 +109,10 @@ Route::group(['prefix' => 'employer'], function (){
 
     // Delete jobs route
     Route::post('/delete-jobs/{id}', [App\Http\Controllers\Employers\EmployersController::class, 'deleteJobs'])->name('delete.jobs');
+
+
+    // Applications Route
+    Route::get('/display-applications', [App\Http\Controllers\Employers\EmployersController::class, 'DisplayApplications'])->name('display-applications');
 });
 
 
@@ -196,6 +200,13 @@ Route::prefix('admin')->group(function() {
     Route::post('/update-jobs/{id}', [App\Http\Controllers\Admins\AdminsController::class, 'updateJobs'])->name('update-jobs')->middleware('admin');
 
     Route::post('/delete-jobs/{id}', [App\Http\Controllers\Admins\AdminsController::class, 'deleteJobs'])->name('delete-jobs')->middleware('admin');
+
+
+    // Application route
+    Route::get('/all-applications', [App\Http\Controllers\Admins\AdminsController::class, 'allApplications'])->name('all-application')->middleware('admin');
+
+    // delete application
+    Route::post('/delete-application/{id}', [App\Http\Controllers\Admins\AdminsController::class, 'deleteApplication'])->name('delete-application')->middleware('admin');
     
 
 
@@ -203,6 +214,11 @@ Route::prefix('admin')->group(function() {
 
 
 });
+
+
+// Email Route
+Route::get('/email', [App\Http\Controllers\EmailController::class, 'create'])->name('email.create');
+Route::post('/email', [App\Http\Controllers\EmailController::class, 'sendEmail'])->name('email.send');
 
 
 

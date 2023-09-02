@@ -166,6 +166,7 @@
                                                 @endif
                                         </div>
                                     </div>
+                                    
                                     <div class="row mb-3">
                                         <label for="exampleInputPassword2" class="col-sm-3 col-form-label">Responsibilities</label>
                                         <div class="col-sm-9">
@@ -230,7 +231,7 @@
 
                                     <div class="btns" style="display: flex; align-items: flex-end; justify-content: end; margin-top: 10px;">
                                     <button type="submit" class="btn btn-primary me-2">Create</button>
-                                    <a href="{{ route('all.jobs') }}" class="btn btn-light">Cancel</a>
+                                    <a href="{{ route('display-jobs') }}" class="btn btn-light">Cancel</a>
                                     </div>
                                 </form>
 

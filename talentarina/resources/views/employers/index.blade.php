@@ -17,7 +17,7 @@
                     <a href="{{ route('display-jobs')}}"><span class="fa fa-book"></span> Jobs</a>
                 </li>
                 <li>
-                    <a href="#"><span class="fa fa-briefcase"></span> Applications</a>
+                    <a href="{{ route('display-applications')}}"><span class="fa fa-briefcase"></span> Applications</a>
                 </li>
                 <li>
                     <a href="{{ route('employer.logout') }}"><span class="fa-solid fa-arrow-right-from-bracket">
@@ -79,6 +79,7 @@
             </nav>
 
             <div class="container-fluid">
+                
 
                 <div class="row">
                     <div class="col-md-3">

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Middleware\Employer;
 use App\Models\Admin;
 use App\Models\Category\Category;
+use App\Models\Job\Application;
 use App\Models\Job\Job;
 // use App\Models\Employer;
 use App\Models\User;
@@ -654,6 +655,28 @@ class AdminsController extends Controller
         }
 
 
+
+    }
+
+
+    // Display all applications
+    public function allApplications() {
+        $applications = Application::all();
+
+        return view('admin.all-applications', compact('applications'));
+    }
+
+    // delete applications
+    public function deleteApplication($id)
+    {
+        $applications = Application::find($id);
+
+        if ($applications) {
+            $applications->delete();
+            return redirect('admin/all-applications')->with('success', 'Deleted successfully!');
+        } else {
+            return redirect('admin/all-applications')->with('error', 'Application not found.');
+        }
 
     }
 
