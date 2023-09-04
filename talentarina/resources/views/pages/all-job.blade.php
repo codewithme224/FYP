@@ -1,7 +1,8 @@
 @extends('layouts.app')
 
 <style>
-    .allcard {
+  .allcard {
+  margin-top: 60px;
   width: 380px;
   height: 440px;
   margin-bottom: 20px;
@@ -33,7 +34,7 @@
   width: 70%;
   border-radius: 1rem;
   border: none;
-  background-color: #6c00f8;
+  background-color: #E80078;
   color: #fff;
   font-size: 1rem;
   padding: .5rem 1rem;
@@ -45,6 +46,11 @@
   transition: 0.3s ease-out;
   cursor: pointer;
   font-family: 'Courier New', Courier, monospace;
+}
+
+.card-button:hover {
+  background-color: #E80078;
+  color: #fff;
 }
 
 .text-body {
@@ -59,7 +65,7 @@
 
 /*Hover*/
 .allcard:hover {
-  border-color: #6c00f8;
+  border-color: #E80078;
   -webkit-box-shadow: 10px 5px 18px 0 rgba(255, 255, 255, 0.877);
   box-shadow: 10px 5px 18px 0 rgba(255, 255, 255, 0.877);
 }

@@ -28,6 +28,7 @@
                                         <th class="pt-0">Profile</th>
                                         <th class="pt-0">Name</th>
                                         <th class="pt-0">Email</th>
+                                        <th class="pt-0">Chat</th>
                                         <th class="pt-0">Edit</th>
                                         <th class="pt-0">Delete</th>
                                         
@@ -44,6 +45,8 @@
                                 <span class="h4 ms-3 text-white"></td>
                                             <td>{{ $user->name }}</td>
                                             <td>{{ $user->email }}</td>
+                                            <td><a href="{{ route('chatify', $user->id) }}">
+                                            <button class="btn btn-success">Chat</button></a></td>
                                             <td>
                                                 <a href="{{route('edit-users', $user->id)}}">
                                                     <button type="button" class="btn btn-warning">Edit</button>

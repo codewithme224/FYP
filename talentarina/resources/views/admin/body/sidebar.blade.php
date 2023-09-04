@@ -63,7 +63,7 @@
                 <a class="nav-link"  href="{{ route('all-application')}}" role="button"
                     aria-expanded="false" aria-controls="forms">
                     <i class="link-icon" data-feather="inbox"></i>
-                    <span class="link-title">Forms</span>
+                    <span class="link-title">Applications</span>
                   
                 </a>
                 

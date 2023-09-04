@@ -90,7 +90,7 @@
                                     <div class="row mb-3">
                                         <label for="exampleInputMobile" class="col-sm-3 col-form-label">Phone</label>
                                         <div class="col-sm-9">
-                                            <input type="number" name="phone" class="form-control"
+                                            <input type="text" name="phone" class="form-control"
                                                 id="exampleInputMobile" value="{{ $admin->phone }}">
                                         </div>
                                     </div>
