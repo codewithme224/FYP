@@ -46,7 +46,7 @@ class EmployersController extends Controller
 
     public function Login(Request $request)
     {
-        // dd($request->all());
+        
 
         $check = $request->all();
         if (Auth::guard('employer')->attempt(['email' => $check['email'], 'password' => $check['password']])) {

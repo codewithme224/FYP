@@ -1,5 +1,6 @@
 @extends('layouts.app')
 
+
 @section('content')
     {{-- <section class="hero-c-container">
         <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
@@ -44,6 +45,28 @@
         </div>
     </div>
 
+    {{-- <section class="book-form" id="book-form">
+
+        <form action="">
+            <div data-aos="zoom-in" data-aos-delay="150" class="inputBox">
+                <span>Job Title</span>
+                <input type="text" placeholder="Eg: Software Engineer" value="">
+            </div>
+            <div data-aos="zoom-in" data-aos-delay="300" class="inputBox">
+                <span>when?</span>
+                <input type="date" value="">
+            </div>
+            <div data-aos="zoom-in" data-aos-delay="450" class="inputBox">
+                <span>how many?</span>
+                <input type="number" placeholder="number of travelers" value="">
+            </div>
+            <input data-aos="zoom-in" data-aos-delay="600" type="submit" value="find now" class="btn">
+
+            <button class="btn">Search</button>
+        </form>
+    
+    </section>  --}}
+
 
     <form method="post" class="search-jobs-form" action="{{ route('search.job') }}">
         @csrf
@@ -86,7 +109,7 @@
             </div>
             <div class="btn-container">
                 <button type="submit" name="submit" class="btn-search">
-                    Search Job
+                    Search
                 </button>
             </div>
         </div>
@@ -261,7 +284,7 @@
             </div>
         </div>
 
-        <div class="card-author">
+        {{-- <div class="card-author">
             <a class="author-avatar" href="#">
                 <span>
                 </span></a>
@@ -276,7 +299,7 @@
             <a href="#">html</a>
             <a href="#">css</a>
             <a href="#">web-dev</a>
-        </div>
+        </div> --}}
     </div>
 
 
@@ -336,12 +359,63 @@
     </section>
 
     {{-- Counter --}}
+    
+    {{-- <section class="destination" id="destination">
+
+        <div class="heading">
+            <span>{{ $total_jobs }} Job Listed</span>
+            
+        </div>
+        @foreach ($jobs as $job)
+        <div class="box-container">
+            <div class="box" data-aos="fade-up" data-aos-delay="150">
+                <div class="image">
+                    <img src="images/elmina.jpg" alt="">
+                </div>
+                <div class="content">
+                    <h3>Elmina Castle</h3>
+                    <p>was erected by the Portuguese in 1482 as Castelo de São Jorge da Mina (St. George of the Mine
+                        Castle),
+                        also known as Castelo da Mina or simply Mina (or Feitoria da Mina), in present-day Elmina, Ghana,
+                        formerly the Gold Coast</p>
+                    <a href="elmina.html">read more <i class="fas fa-angle-right"></i></a>
+                </div>
+            </div>
+        </div>
+        @endforeach
+    </section> --}}
+   
 
 
 
     <h2 class="number-jobs">{{ $total_jobs }} Job Listed</h2>
 
-    <div class="job-container" style=" background-color: #15121A;">
+    @foreach ($jobs as $job)
+        <div class="job-cont">
+            <div class="job-card">
+                <a href="{{ route('single.job', $job->id) }}"></a>
+                <div class="job-content">
+                    <p class="heading">{{ $job->job_title }}
+                    </p>
+                    <img class="job-logo" src="{{ asset('assets/images/' . $job->image . '') }}" alt="">
+                    <p class="para">
+                        {{ $job->job_description }}
+                    </p>
+                    <div class="job-details">
+                        <span><i class="fa-solid fa-briefcase"></i>{{ $job->company }}</span>
+                        <span><i class="fa-solid fa-location-dot"></i>{{ $job->job_region }}</span>
+                        <span><i class="fa-solid fa-clock"></i>{{ $job->job_type }}</span>
+                    </div>
+                    <button class="btn"><a href="{{ route('single.job', $job->id) }}">Apply</a>
+                    </button>
+                </div>
+            </div>
+        </div>
+    @endforeach
+
+
+
+    {{-- <div class="job-container" style=" background-color: #15121A;">
 
         @foreach ($jobs as $job)
             <div class="card-job-post" style="padding: 10px">
@@ -364,7 +438,7 @@
             </div>
         @endforeach
 
-    </div>
+    </div> --}}
 
 
     <section class="job-sign-up" style=" background-color: #15121A;">
@@ -501,8 +575,8 @@
 
 
     <!-- <div class="carousel-container">
-              <img src="{{ asset('assets/images/slider1.jpg') }}" alt="Image 1">
-              <img src="{{ asset('assets/images/person_2.jpg') }}" alt="Image 2">
-              <img src="{{ asset('assets/images/person_3.jpg') }}" alt="Image 3">
-            </div> -->
+                      <img src="{{ asset('assets/images/slider1.jpg') }}" alt="Image 1">
+                      <img src="{{ asset('assets/images/person_2.jpg') }}" alt="Image 2">
+                      <img src="{{ asset('assets/images/person_3.jpg') }}" alt="Image 3">
+                    </div> -->
 @endsection

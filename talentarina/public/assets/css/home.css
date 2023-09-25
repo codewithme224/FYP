@@ -283,10 +283,10 @@ body {
 
 /* Search Form */
 .search-jobs-form .row1 {
-    display: flex;
+    /* display: flex;
     flex-direction: row;
-    width: 93%;
-    height: 80px;
+    width: 100%;
+    height: 140px;
     justify-content: space-around;
     align-items: center;
     background-color: #17141d;
@@ -294,12 +294,68 @@ body {
     padding: 30px;
     border-radius: 10px;
     border-bottom: 2px solid #ff0084;
-    z-index: 1;
+    z-index: 1; */
+
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  justify-content: space-between;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  gap: 1.5rem;
+
+  width: 100%;
+  margin: 1rem auto;
+  margin-top: 5rem;
+  background: #222;
+  border-radius: 1rem;
+  -webkit-box-shadow: 0 0.5rem 1rem rgba(17, 17, 17, 0.3);
+          box-shadow: 0 0.5rem 1rem rgba(17, 17, 17, 0.3);
+  padding: 3rem 2rem;
+}
+
+@media screen and (max-width: 768px) {
+  .search-jobs-form .row1 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .col1 input {
+    width: 200%;
+    height: 60px;
+    border-radius: 10px;
+    padding: 0 20px;
+    font-size: 16px;
+    font-weight: 500;
+    color: #17141d;
+    outline: none;
+    transition: .3s;
+
+}
+
+.location-container select {
+  width: 200%;
+  height: 60px;
+  border-radius: 10px;
+  padding: 0 20px;
+  font-size: 16px;
+  font-weight: 500;
+  color: #17141d;
+  outline: none;
+  transition: .3s;
+
+
+}
 }
 
 
 .col1 input {
-    width: 100%;
+    width: 170%;
     height: 50px;
     border-radius: 10px;
     padding: 0 20px;
@@ -308,6 +364,7 @@ body {
     color: #17141d;
     outline: none;
     transition: .3s;
+
 }
 
 .col1 input:focus {
@@ -323,7 +380,7 @@ body {
 
 
 .location-container select {
-    width: 100%;
+    width: 200%;
     height: 50px;
     border-radius: 10px;
     padding: 0 20px;
@@ -503,6 +560,154 @@ body {
 
 .row2-container h3 {
     color: #17141d;
+}
+
+/* Small screen for btn */
+@media screen and (max-width: 768px) {
+  .row2-container {
+    display: flex;
+    margin-left: 50px;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 40px;
+}
+
+.search-jobs-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin-left: -20px;
+  margin-right: -20px;
+  
+ 
+}
+
+.btn-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+ 
+}
+
+.btn-search {
+  font-size: 10px;
+  
+
+}
+
+.location-container select {
+  border-radius: 5px;
+  padding: 0 10px;
+  margin-left: -10px;
+  width: 100%;
+  font-size: 10px;
+ 
+  
+ 
+}
+
+.card {
+  margin-left: -10px;
+  
+ 
+}
+
+.cards-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  /* margin-left: -20px; */
+  margin-right: 20px;
+  
+ 
+}
+
+.job-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+  
+ 
+}
+
+.card-job-post {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  grid-gap: 1rem;
+  margin-top: 50px;
+
+
+  
+ 
+}
+
+.job-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  grid-gap: 1rem;
+  margin-top: 50px;
+
+
+ 
+}
+
+}
+
+.job-cont {
+  display: none;
+  
+}
+
+/* .job-card {
+  display: grid;
+  grid-template-rows: 1fr auto;
+  
+  gap: 10px;
+  padding: 20px;
+  background-color: #17141d;
+  margin: 100px 50px 100px 50px;
+  border-radius: 10px;
+  border-bottom: 2px solid #ff0084;
+  z-index: 1;
+} */
+
+
+/* Mobile */
+@media screen and (max-width: 768px) {
+  .job-cont {
+    display: grid;
+    place-items: center;
+    width: 500px; /* Adjust the width as needed */
+    height: 600px;
+    /* grid-template-columns: repeat(3, 1fr); */
+  }
+  
+  .job-card {
+    display: grid;
+    grid-template-rows: 1fr auto;
+    
+    gap: 10px;
+    padding: 20px;
+    background-color: #17141d;
+    margin: 100px 50px 100px 50px;
+    border-radius: 10px;
+    border-bottom: 2px solid #ff0084;
+    z-index: 1;
+  }
+
+  .job-container {
+    display: none;
+  }
+
+  .card-job-post {
+    display: none;
+  }
 }
 
 
@@ -1825,3 +2030,123 @@ body {
     font-weight: 500;
   }
 }
+
+
+
+
+.destination .box-container {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (minmax(27rem, 1fr))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(3fr, 1fr));
+  gap: 1.5rem;
+}
+
+.destination .box-container .box {
+  border-radius: 1rem;
+  overflow: hidden;
+  background: #222;
+}
+
+.destination .box-container .box:hover img {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
+.destination .box-container .box .image {
+  height: 20rem;
+  overflow: hidden;
+  width: 100%;
+}
+
+.destination .box-container .box .image img {
+  height: 100%;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.destination .box-container .box .content {
+  padding: 2rem;
+  text-align: center;
+}
+
+.destination .box-container .box .content h3 {
+  font-size: 2rem;
+  color: #fff;
+}
+
+.destination .box-container .box .content p {
+  padding: 1rem 0;
+  font-size: 1.4rem;
+  color: #aaa;
+  line-height: 2;
+}
+
+.destination .box-container .box .content a {
+  font-size: 1.7rem;
+  color: #29d9d5;
+}
+
+.destination .box-container .box .content a:hover i {
+  padding-left: 1rem;
+}
+
+.destination .box-container .box .content a i {
+  padding-right: .5rem;
+}
+
+
+
+.book-form {
+  width: 100%;
+  margin: 1rem auto;
+  margin-top: 5rem;
+  background: #222;
+  border-radius: 1rem;
+  -webkit-box-shadow: 0 0.5rem 1rem rgba(17, 17, 17, 0.3);
+          box-shadow: 0 0.5rem 1rem rgba(17, 17, 17, 0.3);
+  padding: 2rem 2rem;
+}
+
+.book-form form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.book-form form .inputBox {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 25rem;
+          flex: 1 1 25rem;
+}
+
+.book-form form .inputBox span {
+  font-size: 1.4rem;
+  color: #aaa;
+}
+
+.book-form form .inputBox input {
+  width: 100%;
+  padding: 1.2rem 1.4rem;
+  border-radius: 5rem;
+  border: 0.2rem solid #29d9d5;
+  font-size: 1.6rem;
+  color: #aaa;
+  text-transform: none;
+  background: none;
+  margin-top: 1rem;
+}
+
+.book-form form .btn {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 15rem;
+          flex: 1 1 15rem;
+}
+

@@ -85,7 +85,7 @@
 
 @media (min-width: 576px) {
   .card-container {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr auto;
   }
 }
 
@@ -100,6 +100,14 @@
   display: flex;
   justify-content: center;
 
+}
+
+@media screen and (max-width: 768px) {
+  .card-container {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+
+  }
 }
 </style>
 

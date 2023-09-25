@@ -123,8 +123,8 @@ svg text {
 
 
 .side-container {
-    background: #fe6e93;
-    background: -moz-linear-gradient(top, #ff94ad 0%, #a20f48 100%);
+    background: #18284e;
+    background: -moz-linear-gradient(top, #18284e 0%, #09183a 100%);
     /* background: -webkit-linear-gradient(top, #ff94ad 30%, #a20f48 80%); */
     border-right: 1px solid #e7e7e7;
     box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
@@ -260,7 +260,7 @@ svg text {
 
 .main-container-content {
     /* background-color: #fff; */
-    background: #ff94ad;
+    background: #18284e;
     border-radius: 10px;
     box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
     height: 80%;
@@ -310,7 +310,7 @@ svg text {
     top: 62%;
     display: flex;
     flex-direction: row;
-    border: 1px solid black;
+    border: 1px solid white;
     padding: 8px 20px;
     border-radius: 10px;
 }
@@ -364,7 +364,7 @@ svg text {
 
     .main-container-content {
         /* background-color: #fff; */
-        background: #ff94ad;
+        background: #18284e;
         border-radius: 10px;
         box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
         height: 80%;
@@ -432,6 +432,7 @@ svg text {
         font-size: 20px;
     }
 
+
     .main-container-image img {
         /* position it to the right */
         position: absolute;
@@ -444,7 +445,7 @@ svg text {
 
     .main-container-image .arch {
         /* line under the image */
-        background-color: black;
+        background-color: white;
         height: 2px;
         width: 45%;
         margin: 10px 0;
@@ -723,6 +724,10 @@ svg text {
     transition: all 1s;
   }
 
+
+
+
+  
 
   
   

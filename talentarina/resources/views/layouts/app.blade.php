@@ -10,6 +10,8 @@
 
     <title>{{ config('app.name', 'TalentArina') }}</title>
 
+    
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
 
@@ -75,7 +77,7 @@
 
         <!-- Header -->
         <header class="header" id="header">
-            <div class="header_toggle"> <i class='bx bx-menu' id="header-toggle" style="color: #E80078"></i> </div>
+            <div class="header_toggle"> <i class='bx bx-menu' id="header-toggle" style="color: #18284e"></i> </div>
             <div class="header_user">
                 @auth('web') 
                 <div class="dropdown">
@@ -98,7 +100,7 @@
                 @endauth
             </div>
         </header>
-        <div class="l-navbar" id="nav-bar" style="background-color: #E80078">
+        <div class="l-navbar" id="nav-bar" style="background-color: #18284e">
             <nav class="nav">
                 <div class="nav-icons"> <a href="{{ route('home') }}" class="nav_logo"> <i
                             class='bx bx-layer nav_logo-icon'></i> <span class="nav_logo-name">TalentArina</span> </a>
